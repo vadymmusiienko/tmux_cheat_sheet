@@ -1,0 +1,834 @@
+[
+  {
+    "desc": "Prefix key (press before most shortcuts)",
+    "cat": "Misc",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-Space",
+    "default": "Ctrl-b",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["leader", "prefix"]
+  },
+  {
+    "desc": "Reload config file",
+    "cat": "Misc",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix r",
+    "shell": [],
+    "tmuxcmd": ["source-file ~/.config/tmux/tmux.conf"],
+    "keywords": ["reload", "source"]
+  },
+
+  {
+    "desc": "Start a new session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux", "tmux new", "tmux new-session"],
+    "tmuxcmd": ["new"],
+    "keywords": ["create"]
+  },
+  {
+    "desc": "Start a new session or attach to an existing session named mysession",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux new-session -A -s mysession"],
+    "tmuxcmd": [],
+    "keywords": ["create", "attach", "join"]
+  },
+  {
+    "desc": "Start a new session with the name mysession",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux new -s mysession"],
+    "tmuxcmd": ["new -s mysession"],
+    "keywords": ["create"]
+  },
+  {
+    "desc": "Kill / delete the current session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["kill-session"],
+    "keywords": ["terminate"]
+  },
+  {
+    "desc": "Kill / delete session mysession",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux kill-ses -t mysession", "tmux kill-session -t mysession"],
+    "tmuxcmd": [],
+    "keywords": ["terminate"]
+  },
+  {
+    "desc": "Kill / delete all sessions but the current",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux kill-session -a"],
+    "tmuxcmd": [],
+    "keywords": ["terminate"]
+  },
+  {
+    "desc": "Kill / delete all sessions but mysession",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux kill-session -a -t mysession"],
+    "tmuxcmd": [],
+    "keywords": ["terminate"]
+  },
+  {
+    "desc": "Rename session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": "prefix $",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["rename"]
+  },
+  {
+    "desc": "Detach from session",
+    "cat": "Sessions",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix d",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["exit session", "detach"]
+  },
+  {
+    "desc": "Detach others on the session (maximize by detaching other clients)",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["attach -d"],
+    "keywords": ["exit session", "detach others", "maximize"]
+  },
+  {
+    "desc": "Show all sessions",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": "prefix s",
+    "shell": ["tmux ls", "tmux list-sessions"],
+    "tmuxcmd": [],
+    "keywords": ["list"]
+  },
+  {
+    "desc": "Attach to last session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux a", "tmux at", "tmux attach", "tmux attach-session"],
+    "tmuxcmd": [],
+    "keywords": ["attach"]
+  },
+  {
+    "desc": "Attach to a session with the name mysession",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": [],
+    "shell": [
+      "tmux a -t mysession",
+      "tmux at -t mysession",
+      "tmux attach -t mysession",
+      "tmux attach-session -t mysession"
+    ],
+    "tmuxcmd": [],
+    "keywords": ["attach"]
+  },
+  {
+    "desc": "Session and window preview",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": "prefix w",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "switch", "preview"]
+  },
+  {
+    "desc": "Move to previous session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": "prefix (",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "switch"]
+  },
+  {
+    "desc": "Move to next session",
+    "cat": "Sessions",
+    "tier": "reference",
+    "keys": "prefix )",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "switch"]
+  },
+
+  {
+    "desc": "Create window (keeps current path)",
+    "cat": "Windows",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix c",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["create new window"]
+  },
+  {
+    "desc": "Previous window",
+    "cat": "Windows",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-Shift-Left",
+    "default": "prefix p",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "previous"]
+  },
+  {
+    "desc": "Next window",
+    "cat": "Windows",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-Shift-Right",
+    "default": "prefix n",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "next"]
+  },
+  {
+    "desc": "Start a new session named mysession with window mywindow",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux new -s mysession -n mywindow"],
+    "tmuxcmd": [],
+    "keywords": ["create"]
+  },
+  {
+    "desc": "Rename current window",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix ,",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["rename"]
+  },
+  {
+    "desc": "Close current window",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix &",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["kill window", "delete window"]
+  },
+  {
+    "desc": "List windows",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix w",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["list window", "show window"]
+  },
+  {
+    "desc": "Switch / select window by number",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix 0 ... 9",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "select"]
+  },
+  {
+    "desc": "Toggle last active window",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix l",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["toggle", "last"]
+  },
+  {
+    "desc": "Open window actions menu",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": "prefix <",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["menu"]
+  },
+  {
+    "desc": "Reorder window, swap window number 2 (src) and 1 (dst)",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["swap-window -s 2 -t 1"],
+    "keywords": ["swap", "reorder"]
+  },
+  {
+    "desc": "Move current window to the left by one position",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["swap-window -t -1"],
+    "keywords": ["move", "reorder"]
+  },
+  {
+    "desc": "Move window from source to target",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": [
+      "move-window -s src_ses:win -t target_ses:win",
+      "movew -s foo:0 -t bar:9",
+      "movew -s 0:0 -t 1:9"
+    ],
+    "keywords": ["move"]
+  },
+  {
+    "desc": "Reposition window in the current session",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["move-window -s src_session:src_window", "movew -s 0:9"],
+    "keywords": ["move", "reposition"]
+  },
+  {
+    "desc": "Renumber windows to remove gaps in the sequence",
+    "cat": "Windows",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["move-window -r", "movew -r"],
+    "keywords": ["renumber"]
+  },
+
+  {
+    "desc": "Split pane right (side by side)",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix \\",
+    "default": "prefix %",
+    "shell": [],
+    "tmuxcmd": ["split-window -h"],
+    "keywords": ["split", "horizontal"]
+  },
+  {
+    "desc": "Split pane down (stacked)",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix -",
+    "default": "prefix \"",
+    "shell": [],
+    "tmuxcmd": ["split-window -v"],
+    "keywords": ["split", "vertical"]
+  },
+  {
+    "desc": "Switch to pane in the given direction (vim-aware, also works in Neovim)",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-h / Ctrl-j / Ctrl-k / Ctrl-l",
+    "default": "prefix Left/Down/Up/Right",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "vim-tmux-navigator"]
+  },
+  {
+    "desc": "Resize current pane (hold to keep resizing)",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Shift-Left / Shift-Down / Shift-Up / Shift-Right",
+    "default": "prefix Ctrl-Left/Down/Up/Right",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["resize"]
+  },
+  {
+    "desc": "Toggle pane zoom (fullscreen the current pane)",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix z",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["zoom", "fullscreen", "maximize"]
+  },
+  {
+    "desc": "Close current pane",
+    "cat": "Panes",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix x",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["kill pane", "delete pane"]
+  },
+  {
+    "desc": "Toggle last active pane",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix ;",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["toggle", "last"]
+  },
+  {
+    "desc": "Join two windows as panes (merge window 2 into window 1 as panes)",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["join-pane -s 2 -t 1"],
+    "keywords": ["join", "merge"]
+  },
+  {
+    "desc": "Move pane from one window to another (pane 1 of window 2 to after pane 0 of window 1)",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["join-pane -s 2.1 -t 1.0"],
+    "keywords": ["move", "join"]
+  },
+  {
+    "desc": "Move the current pane left",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix {",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["move", "swap"]
+  },
+  {
+    "desc": "Move the current pane right",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix }",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["move", "swap"]
+  },
+  {
+    "desc": "Toggle synchronize-panes (send input to all panes at once)",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["setw synchronize-panes"],
+    "keywords": ["sync", "broadcast"]
+  },
+  {
+    "desc": "Toggle between pane layouts",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix Space",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["layout"]
+  },
+  {
+    "desc": "Switch to next pane",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix o",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "next"]
+  },
+  {
+    "desc": "Show pane numbers",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix q",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["numbers"]
+  },
+  {
+    "desc": "Switch / select pane by number",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix q 0 ... 9",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["select", "navigate"]
+  },
+  {
+    "desc": "Convert pane into a window",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix !",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["break", "convert"]
+  },
+  {
+    "desc": "Open pane actions menu",
+    "cat": "Panes",
+    "tier": "reference",
+    "keys": "prefix >",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["menu"]
+  },
+
+  {
+    "desc": "Enter copy mode",
+    "cat": "Copy Mode",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix [",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["scroll", "copy"]
+  },
+  {
+    "desc": "Begin selection (vim-style)",
+    "cat": "Copy Mode",
+    "tier": "essential",
+    "mine": true,
+    "keys": "v",
+    "default": "Space",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["select"]
+  },
+  {
+    "desc": "Copy selection to system clipboard (pbcopy / wl-copy / xclip)",
+    "cat": "Copy Mode",
+    "tier": "essential",
+    "mine": true,
+    "keys": "y or Enter",
+    "default": "Enter",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["copy", "yank", "clipboard"]
+  },
+  {
+    "desc": "Paste contents of the most recent buffer",
+    "cat": "Copy Mode",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix ]",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["paste"]
+  },
+  {
+    "desc": "Use vi keys in copy mode / buffer",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["setw -g mode-keys vi"],
+    "keywords": ["vi"]
+  },
+  {
+    "desc": "Enter copy mode and scroll one page up",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "prefix PgUp",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["scroll"]
+  },
+  {
+    "desc": "Quit copy mode",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "q",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["quit", "exit"]
+  },
+  {
+    "desc": "Go to top line",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "g",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate"]
+  },
+  {
+    "desc": "Go to bottom line",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "G",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate"]
+  },
+  {
+    "desc": "Move cursor (left / down / up / right)",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "h / j / k / l",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["navigate", "cursor"]
+  },
+  {
+    "desc": "Move cursor forward one word",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "w",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["word"]
+  },
+  {
+    "desc": "Move cursor backward one word",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "b",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["word"]
+  },
+  {
+    "desc": "Search forward",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "/",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["search"]
+  },
+  {
+    "desc": "Search backward",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "?",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["search"]
+  },
+  {
+    "desc": "Next keyword occurrence",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "n",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["search", "next"]
+  },
+  {
+    "desc": "Previous keyword occurrence",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "N",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["search", "previous"]
+  },
+  {
+    "desc": "Clear selection",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": "Esc",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["clear"]
+  },
+  {
+    "desc": "Display the most recent buffer contents",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["show-buffer"],
+    "keywords": ["buffer"]
+  },
+  {
+    "desc": "Copy entire visible contents of pane to a buffer",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["capture-pane"],
+    "keywords": ["capture", "buffer"]
+  },
+  {
+    "desc": "Show all buffers",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["list-buffers"],
+    "keywords": ["buffer", "list"]
+  },
+  {
+    "desc": "Show all buffers and paste the selected one",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["choose-buffer"],
+    "keywords": ["buffer", "paste"]
+  },
+  {
+    "desc": "Save buffer contents to buf.txt",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["save-buffer buf.txt"],
+    "keywords": ["buffer", "save"]
+  },
+  {
+    "desc": "Delete buffer 1",
+    "cat": "Copy Mode",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["delete-buffer -b 1"],
+    "keywords": ["buffer", "delete"]
+  },
+
+  {
+    "desc": "Install plugins (TPM)",
+    "cat": "Plugins",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix I",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["tpm", "install"]
+  },
+  {
+    "desc": "Update plugins (TPM)",
+    "cat": "Plugins",
+    "tier": "reference",
+    "mine": true,
+    "keys": "prefix U",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["tpm", "update"]
+  },
+  {
+    "desc": "Remove plugins not in the config (TPM)",
+    "cat": "Plugins",
+    "tier": "reference",
+    "mine": true,
+    "keys": "prefix Alt-u",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["tpm", "clean"]
+  },
+  {
+    "desc": "Save session / environment (tmux-resurrect)",
+    "cat": "Plugins",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix S",
+    "default": "prefix Ctrl-s",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["resurrect", "save", "persist"]
+  },
+  {
+    "desc": "Restore last saved session / environment (tmux-resurrect)",
+    "cat": "Plugins",
+    "tier": "essential",
+    "mine": true,
+    "keys": "prefix R",
+    "default": "prefix Ctrl-r",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["resurrect", "restore"]
+  },
+  {
+    "desc": "Auto-save every 15 min and auto-restore on start (tmux-continuum, automatic)",
+    "cat": "Plugins",
+    "tier": "reference",
+    "mine": true,
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["set -g @continuum-restore 'on'"],
+    "keywords": ["continuum", "auto-restore", "persist"]
+  },
+
+  {
+    "desc": "Enter command mode",
+    "cat": "Misc",
+    "tier": "reference",
+    "keys": "prefix :",
+    "shell": [],
+    "tmuxcmd": [],
+    "keywords": ["command"]
+  },
+  {
+    "desc": "Set OPTION for all sessions",
+    "cat": "Misc",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["set -g OPTION"],
+    "keywords": ["option", "config"]
+  },
+  {
+    "desc": "Set OPTION for all windows",
+    "cat": "Misc",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["setw -g OPTION"],
+    "keywords": ["option", "config"]
+  },
+  {
+    "desc": "Enable mouse mode",
+    "cat": "Misc",
+    "tier": "reference",
+    "keys": [],
+    "shell": [],
+    "tmuxcmd": ["set mouse on"],
+    "keywords": ["mouse"]
+  },
+  {
+    "desc": "Print tmux version",
+    "cat": "Misc",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux -V"],
+    "tmuxcmd": [],
+    "keywords": ["version"]
+  },
+
+  {
+    "desc": "List all key bindings (shortcuts)",
+    "cat": "Help",
+    "tier": "reference",
+    "keys": "prefix ?",
+    "shell": ["tmux list-keys"],
+    "tmuxcmd": ["list-keys"],
+    "keywords": ["help", "keys"]
+  },
+  {
+    "desc": "Show every session, window, pane, etc.",
+    "cat": "Help",
+    "tier": "reference",
+    "keys": [],
+    "shell": ["tmux info"],
+    "tmuxcmd": [],
+    "keywords": ["help", "info"]
+  }
+]

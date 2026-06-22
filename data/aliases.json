@@ -1,0 +1,50 @@
+[
+  {
+    "name": "tm",
+    "command": "tmux"
+  },
+  {
+    "name": "tma",
+    "command": "tmux attach"
+  },
+  {
+    "name": "tmn",
+    "command": "tmux new-session"
+  },
+  {
+    "name": "tml",
+    "command": "tmux list-sessions"
+  },
+  {
+    "name": "tmk",
+    "command": "tmux kill-session"
+  },
+  {
+    "name": "tmat",
+    "command": "tmux attach-session -t"
+  },
+  {
+    "name": "tmnt",
+    "command": "tmux new-session -t"
+  },
+  {
+    "name": "tmkt",
+    "command": "tmux kill-session -t"
+  },
+  {
+    "name": "tm-work",
+    "command": "tmux new-session -d -s work"
+  },
+  {
+    "name": "tm-dev",
+    "command": "tmux new-session -d -s dev"
+  },
+  {
+    "name": "tm-main",
+    "command": "tmux attach-session -t main || tmux new-session -s main"
+  },
+  {
+    "name": "tmka",
+    "command": "tmux kill-server"
+  }
+]
