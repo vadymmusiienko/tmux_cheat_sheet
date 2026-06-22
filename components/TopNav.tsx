@@ -54,7 +54,7 @@ export function TopNav() {
     : "----------";
 
   return (
-    <header className="sticky top-0 z-30 border-b border-overlay bg-base/85 backdrop-blur">
+    <header className="sticky top-0 z-sticky border-b border-overlay bg-base/85 backdrop-blur">
       <nav className="mx-auto flex h-14 max-w-6xl items-center gap-1 px-2 sm:px-4">
         {/* status-left: cheat-sheet switcher styled as the session pill (#S) */}
         <BrandSwitcher />

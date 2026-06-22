@@ -1,17 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import {
-  commands,
-  essentials,
-  groupByCategory,
-  searchCommands,
-} from "@/lib/data";
+import { useEffect } from "react";
+import { useReducedMotion } from "framer-motion";
+import { commands, essentials, groupByCategory } from "@/lib/data";
 import { ACCENT } from "@/components/accent";
-import { SearchBar } from "@/components/SearchBar";
+import { PaletteTrigger } from "@/components/PaletteTrigger";
 import { EssentialsSection } from "@/components/EssentialsSection";
 import { CategorySection } from "@/components/CategorySection";
 import { TerminalHero } from "@/components/TerminalHero";
+import { flashTo } from "@/components/CommandPalette";
 import { slug } from "@/lib/util";
 
 const TOTAL = commands.length;
@@ -81,52 +78,25 @@ function JumpBar() {
 }
 
 export default function Home() {
-  const [query, setQuery] = useState("");
-  const filtered = useMemo(() => searchCommands(query), [query]);
-  const groups = useMemo(
-    () => groupByCategory(filtered).filter((g) => g.items.length > 0),
-    [filtered],
-  );
-  const searching = query.trim().length > 0;
+  const reduce = useReducedMotion();
+
+  // Arriving from another page via /#cmd-… — pulse the target card.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) flashTo(id, Boolean(reduce));
+  }, [reduce]);
 
   return (
     <>
       <Hero />
-      <SearchBar
-        value={query}
-        onChange={setQuery}
-        resultCount={filtered.length}
-      />
-
-      {searching ? (
-        groups.length > 0 ? (
-          <div className="flex flex-col gap-12">
-            {groups.map((g) => (
-              <CategorySection key={g.cat} group={g} />
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-lg border border-dashed border-overlay bg-surface/40 px-6 py-16 text-center">
-            <p className="font-mono text-sm text-subtle">
-              <span className="text-iris-text">:</span> no commands match{" "}
-              <span className="text-text">{query}</span>
-            </p>
-            <p className="mt-2 text-xs text-muted">
-              try a key, a word, or a category name
-            </p>
-          </div>
-        )
-      ) : (
-        <>
-          <JumpBar />
-          <EssentialsSection items={essentials} />
-          <div className="flex flex-col gap-12">
-            {ALL_GROUPS.map((g) => (
-              <CategorySection key={g.cat} group={g} />
-            ))}
-          </div>
-        </>
-      )}
+      <PaletteTrigger />
+      <JumpBar />
+      <EssentialsSection items={essentials} />
+      <div className="flex flex-col gap-12">
+        {ALL_GROUPS.map((g) => (
+          <CategorySection key={g.cat} group={g} />
+        ))}
+      </div>
     </>
   );
 }

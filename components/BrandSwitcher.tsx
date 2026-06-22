@@ -53,7 +53,7 @@ export function BrandSwitcher() {
       {open && (
         <div
           role="menu"
-          className="absolute left-0 z-50 mt-2 w-56 overflow-hidden rounded-lg border border-overlay bg-surface py-1 shadow-xl shadow-black/30"
+          className="absolute left-0 z-dropdown mt-2 w-56 overflow-hidden rounded-lg border border-overlay bg-surface py-1 shadow-xl shadow-black/30"
         >
           <p className="px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-muted">
             cheat sheets

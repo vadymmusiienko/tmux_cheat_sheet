@@ -195,6 +195,19 @@ body {
 }
 
 /* ----------------------------------------------------------------------------
+   Semantic z-index scale (dropdown → sticky → modal → toast → tooltip)
+---------------------------------------------------------------------------- */
+@utility z-sticky {
+  z-index: 30;
+}
+@utility z-dropdown {
+  z-index: 50;
+}
+@utility z-modal {
+  z-index: 60;
+}
+
+/* ----------------------------------------------------------------------------
    Motion
 ---------------------------------------------------------------------------- */
 @keyframes blink {
@@ -225,6 +238,23 @@ body {
   animation: fade-up 0.4s ease both;
 }
 
+/* Pulse a command card after the palette jumps to it. */
+@keyframes cmd-flash {
+  0% {
+    box-shadow:
+      0 0 0 2px var(--color-iris),
+      0 0 24px 0 var(--color-iris);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 transparent,
+      0 0 0 0 transparent;
+  }
+}
+.cmd-flash {
+  animation: cmd-flash 1.4s ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -232,6 +262,11 @@ body {
   .cursor-blink,
   .animate-fade-up {
     animation: none;
+  }
+  /* No pulse; show a static ring instead (cleared with the class). */
+  .cmd-flash {
+    animation: none;
+    box-shadow: 0 0 0 2px var(--color-iris);
   }
   * {
     transition: none !important;

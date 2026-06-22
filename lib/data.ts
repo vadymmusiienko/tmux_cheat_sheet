@@ -1,5 +1,6 @@
 import rawTmux from "@/data/tmux.json";
 import rawAliases from "@/data/aliases.json";
+import { slug } from "./util";
 import type {
   AccentColor,
   Alias,
@@ -7,6 +8,15 @@ import type {
   Command,
   RawCommand,
 } from "./types";
+
+/**
+ * Stable DOM anchor for a command's canonical (category) card. The same
+ * command also renders inside Essentials, so only the category copy carries
+ * this id — keeping it unique and making it the palette's jump target.
+ */
+export function commandId(cmd: Command): string {
+  return `cmd-${slug(`${cmd.cat}-${cmd.desc}`)}`;
+}
 
 /** Order categories appear in the cheat sheet (mirrors build.py / the README). */
 export const CATEGORY_ORDER = [

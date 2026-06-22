@@ -3,6 +3,7 @@
 import { AnimatePresence } from "framer-motion";
 import { CommandCard } from "./CommandCard";
 import { ACCENT } from "./accent";
+import { commandId } from "@/lib/data";
 import { slug } from "@/lib/util";
 import type { CategoryGroup } from "@/lib/types";
 
@@ -28,6 +29,7 @@ export function CategorySection({ group }: { group: CategoryGroup }) {
               cmd={cmd}
               accent={group.accent}
               index={i}
+              anchorId={commandId(cmd)}
             />
           ))}
         </AnimatePresence>

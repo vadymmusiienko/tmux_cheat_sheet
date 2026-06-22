@@ -9,10 +9,13 @@ export function CommandCard({
   cmd,
   accent,
   index = 0,
+  anchorId,
 }: {
   cmd: Command;
   accent: AccentColor;
   index?: number;
+  /** Stable id so the command palette can scroll to and flash this card. */
+  anchorId?: string;
 }) {
   const reduce = useReducedMotion();
   const a = ACCENT[accent];
@@ -21,6 +24,7 @@ export function CommandCard({
   return (
     <motion.div
       layout
+      id={anchorId}
       initial={reduce ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
@@ -28,7 +32,7 @@ export function CommandCard({
         duration: 0.25,
         delay: reduce ? 0 : Math.min(index, 8) * 0.03,
       }}
-      className={`group flex flex-col gap-3 rounded-lg border border-overlay bg-surface/70 p-4 transition-colors duration-200 ${a.hoverBorder}`}
+      className={`group flex scroll-mt-28 flex-col gap-3 rounded-lg border border-overlay bg-surface/70 p-4 transition-colors duration-200 ${a.hoverBorder}`}
     >
       <div className="flex items-start justify-between gap-2">
         <p className="text-sm leading-snug text-text">{cmd.desc}</p>

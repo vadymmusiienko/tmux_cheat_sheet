@@ -254,7 +254,7 @@ is command mode. Every interactive surface has a visible `:focus-visible` ring
 
 - **Shape:** small radius — pills/tabs `6px` (`rounded-md`), tag pills `4px` (`rounded-sm`).
 - **Jump-bar pills:** ghost by default — `surface/60` fill, `overlay` border, `subtle` mono text; on hover the border brightens to `hl-high` and text to `text`. The essentials pill is the one accented variant (gold border + `gold/[0.06]` fill).
-- **Custom pill:** `hl-low` background, accent-colored text, 10px uppercase tracked label — marks a command as the author's own binding.
+- **Custom pill:** `hl-low` background, a category-accent **dot** + `subtle` 10px uppercase tracked label — marks a command as the author's own binding. (The dot carries the accent so the label stays legible on every theme.)
 - **Hover / Focus:** color-only transitions (`transition-colors`, 200ms). No transform on buttons; movement is reserved for cards and the hero.
 
 ### Keycap (signature component)
@@ -272,9 +272,18 @@ is command mode. Every interactive surface has a visible `:focus-visible` ring
 
 ### Inputs / Search (command mode)
 
-- **Style:** sticky under the nav, `surface` fill, `overlay` border, `8px` radius, mono text. Leads with an iris `:` prompt glyph — the field _is_ tmux command mode.
-- **Focus:** `focus-within:border-iris`; the input itself drops its own outline in favor of the container border shift.
-- **Affordances:** a `⌘K` keycap hint when empty, a live `N matches` count when typing. Bound to `/`, `Cmd/Ctrl-K` (focus) and `Esc` (clear).
+- **Launcher (`PaletteTrigger`):** sticky under the nav, `surface` fill, `overlay` border, `8px` radius, mono text. Leads with an `iris-text` `:` prompt glyph — the bar _is_ tmux command mode. It's a button: `/` and `⌘K` chips hint the shortcut, and activating it opens the Command Palette.
+- **Hover / focus:** border brightens to `hl-high` / `iris` — no inner outline.
+
+### Command Palette (signature component)
+
+The site's single search model — a fuzzy command finder modeled on `fzf` / Telescope, opened by `/` or `Cmd/Ctrl-K` from any page (or the launcher).
+
+- **Surface:** a centered `max-w-xl` panel, `surface` fill, `hl-high` border, `12px` radius, `shadow-2xl`, over a `base/70` + `backdrop-blur` scrim. `z-modal` (60), above sticky nav (30) and dropdowns (50).
+- **Header:** the `iris-text` `:` prompt + a mono input + a live result count.
+- **Rows:** a `›` caret (`iris-text`) on the selected row, a category-accent dot, the description with **fuzzy-matched characters lifted in `foam` + semibold**, an optional `custom` tag, and the first key combo as keycaps. Selected row is `bg-overlay`.
+- **Footer:** a tmux-status hint line — `↑↓ move · ⏎ jump · esc close`.
+- **Motion:** framer scale/fade in (`ease-out` `[0.16,1,0.3,1]`, ~180ms); on Enter it closes, smooth-scrolls to the command's card, and pulses it with the `cmd-flash` iris ring. Reduced motion → instant open + a static ring. Keyboard: `↑/↓`, `Ctrl-j/k/n/p`, `Enter`, `Esc`; combobox/listbox ARIA with `aria-activedescendant`.
 
 ### Navigation (the status line)
 
