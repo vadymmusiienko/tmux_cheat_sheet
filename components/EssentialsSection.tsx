@@ -5,7 +5,7 @@ import type { Command } from "@/lib/types";
 export function EssentialsSection({ items }: { items: Command[] }) {
   if (items.length === 0) return null;
   return (
-    <section id="essentials" className="mb-12 scroll-mt-32">
+    <section id="essentials" className="mb-12 scroll-mt-36">
       <header className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h2 className="font-display text-lg font-semibold text-gold">
           Essentials
@@ -22,6 +22,7 @@ export function EssentialsSection({ items }: { items: Command[] }) {
               key={`${cmd.desc}-${i}`}
               cmd={cmd}
               accent={accentFor(cmd.cat)}
+              index={i}
             />
           ))}
         </div>

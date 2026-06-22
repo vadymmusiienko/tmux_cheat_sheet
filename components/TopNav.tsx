@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-
-const REPO_URL = "https://github.com/vadymmusiienko/tmux_cheat_sheet/";
+import { BrandSwitcher } from "./BrandSwitcher";
+import { REPO_URL } from "@/lib/site";
 
 function GitHubIcon() {
   return (
@@ -55,21 +55,9 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-overlay bg-base/85 backdrop-blur">
-      <nav className="mx-auto flex h-12 max-w-6xl items-center gap-1 px-2 sm:px-4">
-        {/* status-left: session pill (#S), powerline tail */}
-        <Link
-          href="/"
-          className="group flex shrink-0 items-center"
-          aria-label="tmux cheat sheet home"
-        >
-          <span className="flex h-7 items-center rounded-l-md bg-gold px-2.5 font-mono text-sm font-semibold text-ink">
-            tmux
-          </span>
-          <span
-            aria-hidden
-            className="h-7 w-0 border-y-[14px] border-l-[10px] border-y-transparent border-l-gold"
-          />
-        </Link>
+      <nav className="mx-auto flex h-14 max-w-6xl items-center gap-1 px-2 sm:px-4">
+        {/* status-left: cheat-sheet switcher styled as the session pill (#S) */}
+        <BrandSwitcher />
 
         {/* windows */}
         <ul className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -82,8 +70,8 @@ export function TopNav() {
                   aria-current={active ? "page" : undefined}
                   className={
                     active
-                      ? "flex items-center gap-1.5 rounded-md bg-rose px-2.5 py-1 font-mono text-sm font-medium text-ink"
-                      : "flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-sm text-subtle transition-colors hover:bg-overlay hover:text-text"
+                      ? "flex items-center gap-1.5 rounded-md bg-rose px-3 py-1.5 font-mono text-sm font-medium text-ink"
+                      : "flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-sm text-subtle transition-colors hover:bg-overlay hover:text-text"
                   }
                 >
                   <span className={active ? "text-ink/70" : "text-muted"}>
@@ -108,7 +96,7 @@ export function TopNav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View source on GitHub"
-            className="flex h-7 w-7 items-center justify-center rounded-md border border-overlay bg-surface text-subtle transition-colors hover:border-hl-high hover:text-text"
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-overlay bg-surface text-subtle transition-colors hover:border-hl-high hover:text-text"
           >
             <GitHubIcon />
           </a>

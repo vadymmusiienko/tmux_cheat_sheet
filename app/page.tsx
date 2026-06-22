@@ -11,6 +11,7 @@ import { ACCENT } from "@/components/accent";
 import { SearchBar } from "@/components/SearchBar";
 import { EssentialsSection } from "@/components/EssentialsSection";
 import { CategorySection } from "@/components/CategorySection";
+import { TerminalHero } from "@/components/TerminalHero";
 import { slug } from "@/lib/util";
 
 const TOTAL = commands.length;
@@ -19,16 +20,16 @@ const ALL_GROUPS = groupByCategory(commands);
 
 function Hero() {
   return (
-    <section className="mb-10 overflow-hidden rounded-xl border border-overlay bg-surface/50">
-      <div className="px-6 py-10 sm:px-10 sm:py-14">
+    <section className="mb-12 grid items-center gap-10 lg:grid-cols-2">
+      <div>
         <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-pine">
           ~/.config/tmux
         </p>
-        <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-text sm:text-6xl">
+        <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-text sm:text-5xl">
           tmux, the way <span className="text-gold">I</span> use it
           <span className="cursor-blink text-iris">_</span>
         </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-subtle">
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-subtle">
           My personal cheat sheet. Every shortcut and command, with my custom{" "}
           <span className="font-mono text-foam">Ctrl-Space</span> bindings up
           front and the tmux defaults noted right beside them.
@@ -49,17 +50,7 @@ function Hero() {
           </span>
         </div>
       </div>
-      <div className="flex items-center gap-2 border-t border-overlay bg-base/50 px-3 py-1.5 font-mono text-xs">
-        <span className="rounded bg-gold px-2 py-0.5 font-semibold text-ink">
-          cheatsheet
-        </span>
-        <span className="truncate text-muted">
-          0:cheat 1:setup 2:config 3:plugins 4:aliases
-        </span>
-        <span className="ml-auto hidden rounded bg-foam px-2 py-0.5 font-semibold text-ink sm:block">
-          rose-pine
-        </span>
-      </div>
+      <TerminalHero />
     </section>
   );
 }

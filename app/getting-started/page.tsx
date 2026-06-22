@@ -8,6 +8,7 @@ import {
   Section,
 } from "@/components/content";
 import { KeyCombo } from "@/components/KeyCombo";
+import { HierarchyDiagram } from "@/components/HierarchyDiagram";
 
 export const metadata: Metadata = {
   title: "Getting Started · tmux cheat sheet",
@@ -38,6 +39,7 @@ export default function GettingStarted() {
           survives disconnects, and one keystroke brings your entire layout
           back.
         </Callout>
+        <HierarchyDiagram />
       </Section>
 
       <Section title="Install">

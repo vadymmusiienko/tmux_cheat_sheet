@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { KeyComboList } from "./KeyCombo";
 import { ACCENT } from "./accent";
 import type { AccentColor, Command } from "@/lib/types";
@@ -5,15 +8,26 @@ import type { AccentColor, Command } from "@/lib/types";
 export function CommandCard({
   cmd,
   accent,
+  index = 0,
 }: {
   cmd: Command;
   accent: AccentColor;
+  index?: number;
 }) {
+  const reduce = useReducedMotion();
   const a = ACCENT[accent];
   const cmds = [...cmd.tmuxcmd, ...cmd.shell];
 
   return (
-    <div
+    <motion.div
+      layout
+      initial={reduce ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+      transition={{
+        duration: 0.25,
+        delay: reduce ? 0 : Math.min(index, 8) * 0.03,
+      }}
       className={`group flex flex-col gap-3 rounded-lg border border-overlay bg-surface/70 p-4 transition-colors duration-200 ${a.hoverBorder}`}
     >
       <div className="flex items-start justify-between gap-2">
@@ -51,6 +65,6 @@ export function CommandCard({
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

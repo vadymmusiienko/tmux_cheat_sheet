@@ -30,7 +30,7 @@ export function SearchBar({ value, onChange, resultCount }: Props) {
   }, [onChange]);
 
   return (
-    <div className="sticky top-12 z-20 -mx-4 mb-8 border-b border-overlay bg-base/80 px-4 py-4 backdrop-blur">
+    <div className="sticky top-14 z-20 -mx-4 mb-8 border-b border-overlay bg-base/80 px-4 py-4 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 rounded-lg border border-overlay bg-surface px-4 py-3 transition-colors focus-within:border-iris">
         {/* command-mode prompt */}
         <span className="select-none font-mono text-iris">:</span>

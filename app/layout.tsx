@@ -27,7 +27,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="rose-pine"
+      data-theme="gruvbox-dark"
+      suppressHydrationWarning
       className={`${inter.variable} ${jetbrains.variable} ${space.variable}`}
     >
       <head>

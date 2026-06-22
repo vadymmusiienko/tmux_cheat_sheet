@@ -28,8 +28,29 @@
   --font-display: var(--font-space), var(--font-inter), sans-serif;
 }
 
-/* Rose Pine (default, dark) */
+/* Gruvbox Dark (default) */
 :root,
+[data-theme="gruvbox-dark"] {
+  --base: #282828;
+  --ink: #1d2021;
+  --surface: #32302f;
+  --overlay: #3c3836;
+  --muted: #928374;
+  --subtle: #a89984;
+  --text: #ebdbb2;
+  --love: #fb4934;
+  --gold: #fabd2f;
+  --rose: #fe8019;
+  --pine: #83a598;
+  --foam: #8ec07c;
+  --iris: #d3869b;
+  --hl-low: #32302f;
+  --hl-med: #3c3836;
+  --hl-high: #504945;
+  --glow: rgba(250, 189, 47, 0.06);
+}
+
+/* Rose Pine (dark) */
 [data-theme="rose-pine"] {
   --base: #191724;
   --ink: #191724;
@@ -69,27 +90,6 @@
   --hl-med: #dfdad9;
   --hl-high: #cecacd;
   --glow: transparent;
-}
-
-/* Gruvbox Dark */
-[data-theme="gruvbox-dark"] {
-  --base: #282828;
-  --ink: #1d2021;
-  --surface: #32302f;
-  --overlay: #3c3836;
-  --muted: #928374;
-  --subtle: #a89984;
-  --text: #ebdbb2;
-  --love: #fb4934;
-  --gold: #fabd2f;
-  --rose: #fe8019;
-  --pine: #83a598;
-  --foam: #8ec07c;
-  --iris: #d3869b;
-  --hl-low: #32302f;
-  --hl-med: #3c3836;
-  --hl-high: #504945;
-  --glow: rgba(250, 189, 47, 0.06);
 }
 
 /* Gruvbox Light */

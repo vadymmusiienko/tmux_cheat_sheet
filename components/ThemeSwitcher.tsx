@@ -3,13 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 
 const THEMES = [
-  { id: "rose-pine", name: "Rose Pine", bg: "#191724", accent: "#c4a7e7" },
-  {
-    id: "rose-pine-dawn",
-    name: "Rose Pine Dawn",
-    bg: "#faf4ed",
-    accent: "#907aa9",
-  },
   {
     id: "gruvbox-dark",
     name: "Gruvbox Dark",
@@ -22,9 +15,16 @@ const THEMES = [
     bg: "#fbf1c7",
     accent: "#b57614",
   },
+  { id: "rose-pine", name: "Rose Pine", bg: "#191724", accent: "#c4a7e7" },
+  {
+    id: "rose-pine-dawn",
+    name: "Rose Pine Dawn",
+    bg: "#faf4ed",
+    accent: "#907aa9",
+  },
 ] as const;
 
-const DEFAULT = "rose-pine";
+const DEFAULT = "gruvbox-dark";
 
 function Swatch({ bg, accent }: { bg: string; accent: string }) {
   return (
@@ -83,7 +83,7 @@ export function ThemeSwitcher() {
         aria-expanded={open}
         aria-label="Switch theme"
         onClick={() => setOpen((o) => !o)}
-        className="flex h-7 items-center gap-2 rounded-md border border-overlay bg-surface px-2.5 font-mono text-xs text-subtle transition-colors hover:border-hl-high hover:text-text"
+        className="flex h-8 items-center gap-2 rounded-md border border-overlay bg-surface px-2.5 font-mono text-xs text-subtle transition-colors hover:border-hl-high hover:text-text"
       >
         <Swatch bg={current.bg} accent={current.accent} />
         <span className="hidden sm:inline">{current.name}</span>
