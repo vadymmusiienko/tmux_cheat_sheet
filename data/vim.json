@@ -1,0 +1,618 @@
+[
+  {
+    "desc": "Leader key — the prefix for all <leader> mappings",
+    "cat": "Your Custom",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Space",
+    "default": "\\",
+    "mode": "NORMAL",
+    "keywords": ["leader", "mapleader", "prefix", "space"]
+  },
+  {
+    "desc": "Exit insert mode without reaching for Escape",
+    "cat": "Your Custom",
+    "tier": "essential",
+    "mine": true,
+    "keys": "jk",
+    "default": "<Esc>",
+    "mode": "INSERT",
+    "keywords": ["escape", "esc", "normal"]
+  },
+  {
+    "desc": "Enter command-line mode (no Shift needed)",
+    "cat": "Your Custom",
+    "tier": "essential",
+    "mine": true,
+    "keys": ";",
+    "default": ":",
+    "mode": "NORMAL",
+    "keywords": ["command", "colon", "ex"]
+  },
+  {
+    "desc": "Move to the split/pane on the left — seamless across vim & tmux",
+    "cat": "tmux Integration",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-h",
+    "mode": "NORMAL",
+    "excmd": [":TmuxNavigateLeft"],
+    "keywords": ["navigate", "window", "pane", "tmux", "split", "left"]
+  },
+  {
+    "desc": "Move to the split/pane below — seamless across vim & tmux",
+    "cat": "tmux Integration",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-j",
+    "mode": "NORMAL",
+    "excmd": [":TmuxNavigateDown"],
+    "keywords": ["navigate", "window", "pane", "tmux", "split", "down"]
+  },
+  {
+    "desc": "Move to the split/pane above — seamless across vim & tmux",
+    "cat": "tmux Integration",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-k",
+    "mode": "NORMAL",
+    "excmd": [":TmuxNavigateUp"],
+    "keywords": ["navigate", "window", "pane", "tmux", "split", "up"]
+  },
+  {
+    "desc": "Move to the split/pane on the right — seamless across vim & tmux",
+    "cat": "tmux Integration",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-l",
+    "mode": "NORMAL",
+    "excmd": [":TmuxNavigateRight"],
+    "keywords": ["navigate", "window", "pane", "tmux", "split", "right"]
+  },
+  {
+    "desc": "Jump to the previously focused split/pane (vim or tmux)",
+    "cat": "tmux Integration",
+    "tier": "essential",
+    "mine": true,
+    "keys": "Ctrl-\\",
+    "mode": "NORMAL",
+    "excmd": [":TmuxNavigatePrevious"],
+    "keywords": ["navigate", "previous", "last", "tmux", "pane"]
+  },
+  {
+    "desc": "Insert before the cursor",
+    "cat": "Modes",
+    "keys": "i",
+    "mode": "NORMAL",
+    "keywords": ["insert"]
+  },
+  {
+    "desc": "Insert at the first non-blank of the line",
+    "cat": "Modes",
+    "keys": "I",
+    "mode": "NORMAL",
+    "keywords": ["insert", "line start"]
+  },
+  {
+    "desc": "Append after the cursor",
+    "cat": "Modes",
+    "keys": "a",
+    "mode": "NORMAL",
+    "keywords": ["append", "insert"]
+  },
+  {
+    "desc": "Append at the end of the line",
+    "cat": "Modes",
+    "keys": "A",
+    "mode": "NORMAL",
+    "keywords": ["append", "line end", "insert"]
+  },
+  {
+    "desc": "Open a new line below and insert",
+    "cat": "Modes",
+    "keys": "o",
+    "mode": "NORMAL",
+    "keywords": ["open", "line", "insert"]
+  },
+  {
+    "desc": "Open a new line above and insert",
+    "cat": "Modes",
+    "keys": "O",
+    "mode": "NORMAL",
+    "keywords": ["open", "line", "insert"]
+  },
+  {
+    "desc": "Charwise visual selection",
+    "cat": "Modes",
+    "keys": "v",
+    "mode": "NORMAL",
+    "keywords": ["visual", "select"]
+  },
+  {
+    "desc": "Linewise visual selection",
+    "cat": "Modes",
+    "keys": "V",
+    "mode": "NORMAL",
+    "keywords": ["visual", "line", "select"]
+  },
+  {
+    "desc": "Blockwise visual selection",
+    "cat": "Modes",
+    "keys": "Ctrl-v",
+    "mode": "NORMAL",
+    "keywords": ["visual", "block", "column", "select"]
+  },
+  {
+    "desc": "Replace mode (overtype)",
+    "cat": "Modes",
+    "keys": "R",
+    "mode": "NORMAL",
+    "keywords": ["replace", "overtype"]
+  },
+  {
+    "desc": "Return to normal mode",
+    "cat": "Modes",
+    "keys": "Esc",
+    "mode": "INSERT",
+    "keywords": ["normal", "escape"]
+  },
+  {
+    "desc": "Move left / down / up / right",
+    "cat": "Motions",
+    "keys": ["h", "j", "k", "l"],
+    "keywords": ["arrow", "move", "cursor"]
+  },
+  {
+    "desc": "Forward to the start of the next word",
+    "cat": "Motions",
+    "keys": "w",
+    "keywords": ["word", "next"]
+  },
+  {
+    "desc": "Forward to the start of the next WORD (whitespace-delimited)",
+    "cat": "Motions",
+    "keys": "W",
+    "keywords": ["word", "next", "big"]
+  },
+  {
+    "desc": "Back to the start of the previous word",
+    "cat": "Motions",
+    "keys": "b",
+    "keywords": ["word", "back", "previous"]
+  },
+  {
+    "desc": "Forward to the end of the word",
+    "cat": "Motions",
+    "keys": "e",
+    "keywords": ["word", "end"]
+  },
+  {
+    "desc": "To the first column of the line",
+    "cat": "Motions",
+    "keys": "0",
+    "keywords": ["line start", "column", "home"]
+  },
+  {
+    "desc": "To the first non-blank character of the line",
+    "cat": "Motions",
+    "keys": "^",
+    "keywords": ["line start", "non-blank"]
+  },
+  {
+    "desc": "To the end of the line",
+    "cat": "Motions",
+    "keys": "$",
+    "keywords": ["line end"]
+  },
+  {
+    "desc": "Go to the first line of the file",
+    "cat": "Motions",
+    "keys": "gg",
+    "keywords": ["top", "first line"]
+  },
+  {
+    "desc": "Go to the last line of the file (or {count}G for a line number)",
+    "cat": "Motions",
+    "keys": "G",
+    "keywords": ["bottom", "last line", "goto"]
+  },
+  {
+    "desc": "Jump to the previous / next paragraph",
+    "cat": "Motions",
+    "keys": ["{", "}"],
+    "keywords": ["paragraph", "block"]
+  },
+  {
+    "desc": "Find the next / previous occurrence of a character on the line",
+    "cat": "Motions",
+    "keys": ["f", "F"],
+    "keywords": ["find", "char", "to"]
+  },
+  {
+    "desc": "Move till just before the next / previous character",
+    "cat": "Motions",
+    "keys": ["t", "T"],
+    "keywords": ["till", "char", "to"]
+  },
+  {
+    "desc": "Repeat / reverse the last f, F, t, or T",
+    "cat": "Motions",
+    "keys": [";", ","],
+    "keywords": ["repeat", "find", "reverse"]
+  },
+  {
+    "desc": "Jump to the matching bracket, paren, or brace",
+    "cat": "Motions",
+    "keys": "%",
+    "keywords": ["match", "bracket", "paren", "pair"]
+  },
+  {
+    "desc": "Move to the top / middle / bottom of the screen",
+    "cat": "Motions",
+    "keys": ["H", "M", "L"],
+    "keywords": ["screen", "high", "middle", "low"]
+  },
+  {
+    "desc": "Scroll half a page down / up",
+    "cat": "Motions",
+    "keys": ["Ctrl-d", "Ctrl-u"],
+    "keywords": ["scroll", "page", "half"]
+  },
+  {
+    "desc": "Scroll a full page forward / back",
+    "cat": "Motions",
+    "keys": ["Ctrl-f", "Ctrl-b"],
+    "keywords": ["scroll", "page"]
+  },
+  {
+    "desc": "Center the current line on screen",
+    "cat": "Motions",
+    "keys": "zz",
+    "keywords": ["center", "scroll", "redraw"]
+  },
+  {
+    "desc": "Delete (operator) — combine with a motion or text object",
+    "cat": "Operators & Edits",
+    "keys": "d",
+    "keywords": ["delete", "cut", "operator", "dw", "d$"]
+  },
+  {
+    "desc": "Delete the whole line",
+    "cat": "Operators & Edits",
+    "keys": "dd",
+    "keywords": ["delete", "line", "cut"]
+  },
+  {
+    "desc": "Change (operator) — delete then enter insert mode",
+    "cat": "Operators & Edits",
+    "keys": "c",
+    "keywords": ["change", "operator", "cw", "ciw"]
+  },
+  {
+    "desc": "Change the whole line",
+    "cat": "Operators & Edits",
+    "keys": "cc",
+    "keywords": ["change", "line"]
+  },
+  {
+    "desc": "Yank / copy (operator) — combine with a motion or text object",
+    "cat": "Operators & Edits",
+    "keys": "y",
+    "keywords": ["yank", "copy", "operator", "yiw"]
+  },
+  {
+    "desc": "Yank the whole line",
+    "cat": "Operators & Edits",
+    "keys": "yy",
+    "keywords": ["yank", "copy", "line"]
+  },
+  {
+    "desc": "Paste after / before the cursor",
+    "cat": "Operators & Edits",
+    "keys": ["p", "P"],
+    "keywords": ["paste", "put"]
+  },
+  {
+    "desc": "Delete the character under the cursor",
+    "cat": "Operators & Edits",
+    "keys": "x",
+    "keywords": ["delete", "char"]
+  },
+  {
+    "desc": "Replace a single character",
+    "cat": "Operators & Edits",
+    "keys": "r",
+    "keywords": ["replace", "char"]
+  },
+  {
+    "desc": "Undo / redo",
+    "cat": "Operators & Edits",
+    "keys": ["u", "Ctrl-r"],
+    "keywords": ["undo", "redo"]
+  },
+  {
+    "desc": "Repeat the last change",
+    "cat": "Operators & Edits",
+    "keys": ".",
+    "keywords": ["repeat", "dot"]
+  },
+  {
+    "desc": "Indent / dedent the line (or selection)",
+    "cat": "Operators & Edits",
+    "keys": [">>", "<<"],
+    "mode": "n v",
+    "keywords": ["indent", "shift", "tab"]
+  },
+  {
+    "desc": "Join this line with the next",
+    "cat": "Operators & Edits",
+    "keys": "J",
+    "keywords": ["join", "line"]
+  },
+  {
+    "desc": "Lowercase / uppercase (operator), e.g. guiw, gUiw",
+    "cat": "Operators & Edits",
+    "keys": ["gu", "gU"],
+    "keywords": ["case", "lower", "upper"]
+  },
+  {
+    "desc": "Inner word / a word — e.g. diw, caw, yiw",
+    "cat": "Text Objects",
+    "keys": ["iw", "aw"],
+    "keywords": ["word", "inner", "around", "object"]
+  },
+  {
+    "desc": "Inside / around double quotes — e.g. ci\", da\"",
+    "cat": "Text Objects",
+    "keys": ["i\"", "a\""],
+    "keywords": ["quote", "string", "inner", "around"]
+  },
+  {
+    "desc": "Inside / around parentheses — e.g. ci(, ya)",
+    "cat": "Text Objects",
+    "keys": ["i(", "a("],
+    "keywords": ["paren", "bracket", "inner", "around", "ib", "ab"]
+  },
+  {
+    "desc": "Inside / around curly braces — e.g. di{, ci}",
+    "cat": "Text Objects",
+    "keys": ["i{", "a{"],
+    "keywords": ["brace", "block", "inner", "around", "iB"]
+  },
+  {
+    "desc": "Inside / around square brackets",
+    "cat": "Text Objects",
+    "keys": ["i[", "a["],
+    "keywords": ["bracket", "inner", "around"]
+  },
+  {
+    "desc": "Inside / around an HTML/XML tag — e.g. cit, dat",
+    "cat": "Text Objects",
+    "keys": ["it", "at"],
+    "keywords": ["tag", "html", "xml", "inner", "around"]
+  },
+  {
+    "desc": "Inside / around a paragraph",
+    "cat": "Text Objects",
+    "keys": ["ip", "ap"],
+    "keywords": ["paragraph", "inner", "around"]
+  },
+  {
+    "desc": "Search forward / backward for a pattern",
+    "cat": "Search & Replace",
+    "keys": ["/", "?"],
+    "keywords": ["search", "find", "pattern"]
+  },
+  {
+    "desc": "Jump to the next / previous match",
+    "cat": "Search & Replace",
+    "keys": ["n", "N"],
+    "keywords": ["search", "next", "previous", "match"]
+  },
+  {
+    "desc": "Search forward / backward for the word under the cursor",
+    "cat": "Search & Replace",
+    "keys": ["*", "#"],
+    "keywords": ["search", "word", "cursor"]
+  },
+  {
+    "desc": "Clear search highlighting",
+    "cat": "Search & Replace",
+    "keys": "Esc",
+    "default": ":nohlsearch",
+    "excmd": [":noh"],
+    "keywords": ["highlight", "clear", "nohl", "nvchad"]
+  },
+  {
+    "desc": "Substitute on the current line",
+    "cat": "Search & Replace",
+    "excmd": [":s/old/new/g"],
+    "keywords": ["substitute", "replace", "sed"]
+  },
+  {
+    "desc": "Substitute across the whole file",
+    "cat": "Search & Replace",
+    "excmd": [":%s/old/new/g"],
+    "keywords": ["substitute", "replace", "global"]
+  },
+  {
+    "desc": "Substitute across the file, confirming each change",
+    "cat": "Search & Replace",
+    "excmd": [":%s/old/new/gc"],
+    "keywords": ["substitute", "replace", "confirm"]
+  },
+  {
+    "desc": "Save / quit / save-and-quit the current file",
+    "cat": "Windows & Buffers",
+    "excmd": [":w", ":q", ":wq"],
+    "keywords": ["save", "write", "quit", "close", "x"]
+  },
+  {
+    "desc": "Quit all windows (force with :qa!)",
+    "cat": "Windows & Buffers",
+    "excmd": [":qa"],
+    "keywords": ["quit", "all", "exit"]
+  },
+  {
+    "desc": "Save the current file",
+    "cat": "Windows & Buffers",
+    "keys": "Ctrl-s",
+    "excmd": [":w"],
+    "keywords": ["save", "write", "nvchad"]
+  },
+  {
+    "desc": "Split the window horizontally / vertically",
+    "cat": "Windows & Buffers",
+    "keys": ["Ctrl-w s", "Ctrl-w v"],
+    "excmd": [":split", ":vsplit"],
+    "keywords": ["split", "window", "pane"]
+  },
+  {
+    "desc": "Cycle to the next split window",
+    "cat": "Windows & Buffers",
+    "keys": "Ctrl-w w",
+    "keywords": ["window", "split", "cycle", "next"]
+  },
+  {
+    "desc": "Close the current split / keep only this split",
+    "cat": "Windows & Buffers",
+    "keys": ["Ctrl-w q", "Ctrl-w o"],
+    "excmd": [":close", ":only"],
+    "keywords": ["close", "only", "split", "window"]
+  },
+  {
+    "desc": "Equalize all split sizes",
+    "cat": "Windows & Buffers",
+    "keys": "Ctrl-w =",
+    "keywords": ["resize", "equal", "split"]
+  },
+  {
+    "desc": "Cycle to the next / previous buffer (tab)",
+    "cat": "Windows & Buffers",
+    "keys": ["Tab", "Shift-Tab"],
+    "keywords": ["buffer", "tab", "next", "previous", "nvchad"]
+  },
+  {
+    "desc": "Close the current buffer",
+    "cat": "Windows & Buffers",
+    "keys": "Space x",
+    "keywords": ["buffer", "close", "delete", "nvchad"]
+  },
+  {
+    "desc": "Open a new empty buffer",
+    "cat": "Windows & Buffers",
+    "keys": "Space b",
+    "keywords": ["buffer", "new", "nvchad"]
+  },
+  {
+    "desc": "Find files in the project",
+    "cat": "Leader / NvChad",
+    "keys": "Space f f",
+    "excmd": [":Telescope find_files"],
+    "keywords": ["telescope", "fuzzy", "files", "open"]
+  },
+  {
+    "desc": "Live grep across the project",
+    "cat": "Leader / NvChad",
+    "keys": "Space f w",
+    "excmd": [":Telescope live_grep"],
+    "keywords": ["telescope", "grep", "search", "ripgrep", "word"]
+  },
+  {
+    "desc": "Find open buffers",
+    "cat": "Leader / NvChad",
+    "keys": "Space f b",
+    "excmd": [":Telescope buffers"],
+    "keywords": ["telescope", "buffers", "switch"]
+  },
+  {
+    "desc": "Find recently opened files",
+    "cat": "Leader / NvChad",
+    "keys": "Space f o",
+    "excmd": [":Telescope oldfiles"],
+    "keywords": ["telescope", "recent", "oldfiles", "history"]
+  },
+  {
+    "desc": "Search the help tags",
+    "cat": "Leader / NvChad",
+    "keys": "Space f h",
+    "excmd": [":Telescope help_tags"],
+    "keywords": ["telescope", "help", "docs"]
+  },
+  {
+    "desc": "Toggle the file tree (nvim-tree)",
+    "cat": "Leader / NvChad",
+    "keys": "Ctrl-n",
+    "excmd": [":NvimTreeToggle"],
+    "keywords": ["nvimtree", "explorer", "sidebar", "files"]
+  },
+  {
+    "desc": "Focus the file tree",
+    "cat": "Leader / NvChad",
+    "keys": "Space e",
+    "excmd": [":NvimTreeFocus"],
+    "keywords": ["nvimtree", "explorer", "focus"]
+  },
+  {
+    "desc": "Pick a colorscheme",
+    "cat": "Leader / NvChad",
+    "keys": "Space t h",
+    "excmd": [":Telescope themes"],
+    "keywords": ["theme", "colorscheme", "nvchad"]
+  },
+  {
+    "desc": "Toggle comment on the line or selection",
+    "cat": "Leader / NvChad",
+    "keys": "Space /",
+    "mode": "n v",
+    "keywords": ["comment", "uncomment", "toggle"]
+  },
+  {
+    "desc": "Format the current buffer (conform)",
+    "cat": "Leader / NvChad",
+    "keys": "Space f m",
+    "keywords": ["format", "conform", "prettier", "lsp"]
+  },
+  {
+    "desc": "Toggle absolute / relative line numbers",
+    "cat": "Leader / NvChad",
+    "keys": ["Space n", "Space r n"],
+    "keywords": ["number", "relative", "line", "toggle"]
+  },
+  {
+    "desc": "Go to definition / find references",
+    "cat": "Leader / NvChad",
+    "keys": ["gd", "gr"],
+    "keywords": ["lsp", "definition", "references", "goto"]
+  },
+  {
+    "desc": "Show hover documentation",
+    "cat": "Leader / NvChad",
+    "keys": "K",
+    "keywords": ["lsp", "hover", "docs", "signature"]
+  },
+  {
+    "desc": "Rename the symbol under the cursor",
+    "cat": "Leader / NvChad",
+    "keys": "Space r a",
+    "keywords": ["lsp", "rename", "refactor"]
+  },
+  {
+    "desc": "Run a code action",
+    "cat": "Leader / NvChad",
+    "keys": "Space c a",
+    "keywords": ["lsp", "code action", "fix", "quickfix"]
+  },
+  {
+    "desc": "Jump to the previous / next diagnostic",
+    "cat": "Leader / NvChad",
+    "keys": ["[d", "]d"],
+    "keywords": ["lsp", "diagnostic", "error", "warning"]
+  },
+  {
+    "desc": "Open the NvChad cheatsheet",
+    "cat": "Leader / NvChad",
+    "keys": "Space c h",
+    "keywords": ["cheatsheet", "nvchad", "mappings", "help"]
+  }
+]

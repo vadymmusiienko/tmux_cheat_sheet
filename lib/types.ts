@@ -1,6 +1,6 @@
 export type Tier = "essential" | "reference";
 
-/** Raw shape as stored in data/tmux.json. */
+/** Raw shape as stored in data/<tool>.json. */
 export interface RawCommand {
   desc: string;
   cat: string;
@@ -8,8 +8,13 @@ export interface RawCommand {
   mine?: boolean;
   keys?: string | string[];
   default?: string;
+  /** tmux command-mode equivalents (tmux tool). */
   tmuxcmd?: string[];
+  /** vim ex/colon commands, e.g. `:w`, `:bnext` (vim tool). */
+  excmd?: string[];
   shell?: string[];
+  /** vim mode the mapping applies in, e.g. "NORMAL", "n i v". */
+  mode?: string;
   keywords?: string[];
 }
 
@@ -21,10 +26,13 @@ export interface Command {
   mine: boolean;
   /** Key bindings, always an array (may be empty). */
   keys: string[];
-  /** Stock tmux binding this overrides, if any. */
+  /** Stock binding this overrides, if any (tmux default / stock vim). */
   default?: string;
   tmuxcmd: string[];
+  excmd: string[];
   shell: string[];
+  /** vim mode tag; empty string when not applicable. */
+  mode: string;
   keywords: string[];
 }
 

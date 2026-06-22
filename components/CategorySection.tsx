@@ -3,11 +3,13 @@
 import { AnimatePresence } from "framer-motion";
 import { CommandCard } from "./CommandCard";
 import { ACCENT } from "./accent";
+import { useTool } from "./ToolContext";
 import { commandId } from "@/lib/data";
 import { slug } from "@/lib/util";
 import type { CategoryGroup } from "@/lib/types";
 
 export function CategorySection({ group }: { group: CategoryGroup }) {
+  const tool = useTool();
   const a = ACCENT[group.accent];
   return (
     <section id={slug(group.cat)} className="scroll-mt-36">
@@ -29,7 +31,7 @@ export function CategorySection({ group }: { group: CategoryGroup }) {
               cmd={cmd}
               accent={group.accent}
               index={i}
-              anchorId={commandId(cmd)}
+              anchorId={commandId(tool.id, cmd)}
             />
           ))}
         </AnimatePresence>

@@ -20,7 +20,7 @@ export function CommandCard({
 }) {
   const reduce = useReducedMotion();
   const a = ACCENT[accent];
-  const cmds = [...cmd.tmuxcmd, ...cmd.shell];
+  const cmds = [...cmd.tmuxcmd, ...cmd.excmd, ...cmd.shell];
 
   return (
     <motion.div
@@ -38,12 +38,19 @@ export function CommandCard({
     >
       <div className="flex items-start justify-between gap-2">
         <p className="text-sm leading-snug text-text">{cmd.desc}</p>
-        {cmd.mine && (
-          <span className="inline-flex shrink-0 items-center gap-1 rounded bg-hl-low px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-subtle">
-            <span className={`h-1.5 w-1.5 rounded-full ${a.dot}`} />
-            custom
-          </span>
-        )}
+        <div className="flex shrink-0 items-center gap-1.5">
+          {cmd.mode && (
+            <span className="inline-flex items-center rounded bg-hl-low px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wide text-muted">
+              {cmd.mode}
+            </span>
+          )}
+          {cmd.mine && (
+            <span className="inline-flex items-center gap-1 rounded bg-hl-low px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-subtle">
+              <span className={`h-1.5 w-1.5 rounded-full ${a.dot}`} />
+              custom
+            </span>
+          )}
+        </div>
       </div>
 
       {cmd.keys.length > 0 && (

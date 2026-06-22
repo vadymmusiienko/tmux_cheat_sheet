@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Callout, PageHeader } from "@/components/content";
-import { aliases } from "@/lib/data";
+import { tmuxTool } from "@/lib/tools/tmux";
+
+const aliases = tmuxTool.aliases ?? [];
 
 export const metadata: Metadata = {
   title: "Shell Aliases · tmux cheat sheet",

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { BrandSwitcher } from "./BrandSwitcher";
+import { useTool } from "./ToolContext";
 import { REPO_URL } from "@/lib/site";
 
 function GitHubIcon() {
@@ -20,15 +21,6 @@ function GitHubIcon() {
   );
 }
 
-/** Nav tabs rendered as tmux "windows" (index + name), like the status line. */
-const WINDOWS = [
-  { href: "/", index: 0, name: "cheat" },
-  { href: "/getting-started", index: 1, name: "setup" },
-  { href: "/configuration", index: 2, name: "config" },
-  { href: "/plugins", index: 3, name: "plugins" },
-  { href: "/aliases", index: 4, name: "aliases" },
-];
-
 function useClock() {
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
@@ -40,6 +32,7 @@ function useClock() {
 }
 
 export function TopNav() {
+  const tool = useTool();
   const pathname = usePathname();
   const now = useClock();
   const time = now
@@ -61,12 +54,13 @@ export function TopNav() {
 
         {/* windows */}
         <ul className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {WINDOWS.map((w) => {
-            const active = pathname === w.href;
+          {tool.windows.map((w) => {
+            const href = `${tool.basePath}${w.path}`;
+            const active = pathname === href;
             return (
-              <li key={w.href} className="shrink-0">
+              <li key={href} className="shrink-0">
                 <Link
-                  href={w.href}
+                  href={href}
                   aria-current={active ? "page" : undefined}
                   className={
                     active

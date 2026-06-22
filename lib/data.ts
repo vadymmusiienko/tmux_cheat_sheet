@@ -1,44 +1,15 @@
-import rawTmux from "@/data/tmux.json";
-import rawAliases from "@/data/aliases.json";
 import { slug } from "./util";
-import type {
-  AccentColor,
-  Alias,
-  CategoryGroup,
-  Command,
-  RawCommand,
-} from "./types";
+import type { AccentColor, CategoryGroup, Command, RawCommand } from "./types";
 
 /**
  * Stable DOM anchor for a command's canonical (category) card. The same
  * command also renders inside Essentials, so only the category copy carries
- * this id — keeping it unique and making it the palette's jump target.
+ * this id — keeping it unique and making it the palette's jump target. The
+ * tool id is part of the prefix so tmux and vim anchors never collide.
  */
-export function commandId(cmd: Command): string {
-  return `cmd-${slug(`${cmd.cat}-${cmd.desc}`)}`;
+export function commandId(toolId: string, cmd: Command): string {
+  return `cmd-${toolId}-${slug(`${cmd.cat}-${cmd.desc}`)}`;
 }
-
-/** Order categories appear in the cheat sheet (mirrors build.py / the README). */
-export const CATEGORY_ORDER = [
-  "Sessions",
-  "Windows",
-  "Panes",
-  "Copy Mode",
-  "Plugins",
-  "Misc",
-  "Help",
-] as const;
-
-/** Each category gets its own Rose Pine accent, echoing tmux's colored status. */
-export const CATEGORY_ACCENT: Record<string, AccentColor> = {
-  Sessions: "iris",
-  Windows: "foam",
-  Panes: "pine",
-  "Copy Mode": "gold",
-  Plugins: "rose",
-  Misc: "subtle",
-  Help: "love",
-};
 
 function normalize(raw: RawCommand): Command {
   const keys =
@@ -55,44 +26,61 @@ function normalize(raw: RawCommand): Command {
     keys,
     default: raw.default,
     tmuxcmd: raw.tmuxcmd ?? [],
+    excmd: raw.excmd ?? [],
     shell: raw.shell ?? [],
+    mode: raw.mode ?? "",
     keywords: raw.keywords ?? [],
   };
 }
 
-export const commands: Command[] = (rawTmux as RawCommand[]).map(normalize);
-
-export const aliases: Alias[] = rawAliases as Alias[];
-
-export const essentials: Command[] = commands.filter(
-  (c) => c.tier === "essential",
-);
-
-export function accentFor(cat: string): AccentColor {
-  return CATEGORY_ACCENT[cat] ?? "subtle";
+/** Derived, render-ready data for a single tool (tmux, vim, …). */
+export interface ToolData {
+  commands: Command[];
+  essentials: Command[];
+  groups: CategoryGroup[];
+  /** Category → accent map, so components can resolve an accent by name. */
+  categoryAccent: Record<string, AccentColor>;
 }
 
-/** Group commands by category in the canonical order. */
-export function groupByCategory(list: Command[] = commands): CategoryGroup[] {
-  const known = CATEGORY_ORDER as readonly string[];
+/**
+ * Normalize a tool's raw commands and group them by category in the canonical
+ * order (unknown categories are appended in first-seen order). Each category
+ * carries its accent.
+ */
+export function buildToolData(
+  raw: RawCommand[],
+  opts: {
+    categoryOrder: readonly string[];
+    categoryAccent: Record<string, AccentColor>;
+  },
+): ToolData {
+  const commands = raw.map(normalize);
+  const accentFor = (cat: string): AccentColor =>
+    opts.categoryAccent[cat] ?? "subtle";
+
+  const known = opts.categoryOrder;
   const cats = [
-    ...known.filter((c) => list.some((cmd) => cmd.cat === c)),
-    ...Array.from(new Set(list.map((c) => c.cat))).filter(
+    ...known.filter((c) => commands.some((cmd) => cmd.cat === c)),
+    ...Array.from(new Set(commands.map((c) => c.cat))).filter(
       (c) => !known.includes(c),
     ),
   ];
-  return cats.map((cat) => ({
+  const groups: CategoryGroup[] = cats.map((cat) => ({
     cat,
     accent: accentFor(cat),
-    items: list.filter((c) => c.cat === cat),
+    items: commands.filter((c) => c.cat === cat),
   }));
+
+  return {
+    commands,
+    essentials: commands.filter((c) => c.tier === "essential"),
+    groups,
+    categoryAccent: opts.categoryAccent,
+  };
 }
 
 /** Case-insensitive substring search across every searchable field. */
-export function searchCommands(
-  query: string,
-  list: Command[] = commands,
-): Command[] {
+export function searchCommands(query: string, list: Command[]): Command[] {
   const q = query.trim().toLowerCase();
   if (!q) return list;
   return list.filter((c) => {
@@ -100,8 +88,10 @@ export function searchCommands(
       c.desc,
       c.cat,
       c.default ?? "",
+      c.mode,
       ...c.keys,
       ...c.tmuxcmd,
+      ...c.excmd,
       ...c.shell,
       ...c.keywords,
     ]

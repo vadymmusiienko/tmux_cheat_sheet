@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import { TopNav } from "@/components/TopNav";
-import { Footer } from "@/components/Footer";
-import { CommandPalette } from "@/components/CommandPalette";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -13,12 +10,15 @@ const jetbrains = JetBrains_Mono({
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
-  title: "tmux cheat sheet",
+  title: "cheatsheets",
   description:
-    "A personal tmux cheat sheet: every command and shortcut, with my custom bindings and the tmux defaults.",
+    "Personal cheat sheets for the terminal tools I live in — tmux and vim.",
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem('tmux-theme');if(t){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
+// Per-tool theme: derive the tool from the path, then apply its saved theme (or
+// default) before paint so there's no flash. The landing page keeps the SSR
+// default. Keys: `tmux-theme` / `vim-theme`.
+const themeInit = `(function(){try{var p=location.pathname;var tool=p.indexOf('/vim')===0?'vim':(p.indexOf('/tmux')===0?'tmux':null);if(tool){var def=tool==='vim'?'vim-onedark':'gruvbox-dark';var t=localStorage.getItem(tool+'-theme')||def;document.documentElement.dataset.theme=t;}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -35,12 +35,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
-      <body className="min-h-screen">
-        <TopNav />
-        <main className="mx-auto w-full max-w-6xl px-4 py-10">{children}</main>
-        <Footer />
-        <CommandPalette />
-      </body>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }

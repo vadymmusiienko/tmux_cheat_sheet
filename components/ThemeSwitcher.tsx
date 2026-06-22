@@ -1,30 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useTool } from "./ToolContext";
 
-const THEMES = [
-  {
-    id: "gruvbox-dark",
-    name: "Gruvbox Dark",
-    bg: "#282828",
-    accent: "#fabd2f",
-  },
-  {
-    id: "gruvbox-light",
-    name: "Gruvbox Light",
-    bg: "#fbf1c7",
-    accent: "#966111",
-  },
-  { id: "rose-pine", name: "Rose Pine", bg: "#191724", accent: "#c4a7e7" },
-  {
-    id: "rose-pine-dawn",
-    name: "Rose Pine Dawn",
-    bg: "#faf4ed",
-    accent: "#907aa9",
-  },
-] as const;
-
-const DEFAULT = "gruvbox-dark";
+// Layout effect on the client (apply theme before paint, no flash); a no-op
+// effect on the server so SSR doesn't warn.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 function Swatch({ bg, accent }: { bg: string; accent: string }) {
   return (
@@ -39,14 +21,28 @@ function Swatch({ bg, accent }: { bg: string; accent: string }) {
 }
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<string>(DEFAULT);
+  const tool = useTool();
+  const themes = tool.themes;
+  const fallback = tool.defaultTheme;
+
+  const [theme, setTheme] = useState<string>(fallback);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const fadeTimer = useRef<number | undefined>(undefined);
 
-  useEffect(() => {
-    setTheme(document.documentElement.dataset.theme || DEFAULT);
-  }, []);
+  // Apply this tool's saved theme (or its default) whenever the switcher mounts.
+  // The switcher remounts on cross-tool navigation, so this also keeps each
+  // tool's theme isolated — the inline <head> script only runs on full loads.
+  useIsoLayoutEffect(() => {
+    let saved = fallback;
+    try {
+      saved = localStorage.getItem(tool.storageKey) || fallback;
+    } catch {
+      /* ignore */
+    }
+    setTheme(saved);
+    document.documentElement.dataset.theme = saved;
+  }, [tool.storageKey, fallback]);
 
   useEffect(() => {
     if (!open) return;
@@ -77,13 +73,13 @@ export function ThemeSwitcher() {
       300,
     );
     try {
-      localStorage.setItem("tmux-theme", id);
+      localStorage.setItem(tool.storageKey, id);
     } catch {
       /* ignore */
     }
   }
 
-  const current = THEMES.find((t) => t.id === theme) ?? THEMES[0];
+  const current = themes.find((t) => t.id === theme) ?? themes[0];
 
   return (
     <div ref={ref} className="relative">
@@ -105,7 +101,7 @@ export function ThemeSwitcher() {
           aria-label="Theme"
           className="absolute right-0 z-dropdown mt-2 w-48 overflow-hidden rounded-lg border border-overlay bg-surface py-1 shadow-xl shadow-black/30"
         >
-          {THEMES.map((t) => {
+          {themes.map((t) => {
             const active = t.id === theme;
             return (
               <li key={t.id} role="option" aria-selected={active}>

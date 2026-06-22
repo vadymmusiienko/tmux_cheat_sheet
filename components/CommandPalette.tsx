@@ -4,11 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { commands, commandId, accentFor } from "@/lib/data";
+import { commandId } from "@/lib/data";
 import { scoreCommand } from "@/lib/fuzzy";
 import { EASE_OUT_EXPO } from "@/lib/motion";
 import { ACCENT } from "./accent";
 import { KeyCombo } from "./KeyCombo";
+import { useTool } from "./ToolContext";
 import type { Command } from "@/lib/types";
 
 const MAX_RESULTS = 50;
@@ -48,6 +49,8 @@ function Highlight({
 }
 
 export function CommandPalette() {
+  const tool = useTool();
+  const commands = tool.commands;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(0);
@@ -75,7 +78,7 @@ export function CommandPalette() {
       .sort((a, b) => b.m.score - a.m.score)
       .slice(0, MAX_RESULTS)
       .map(({ cmd, m }) => ({ cmd, positions: m.positions }));
-  }, [query]);
+  }, [query, commands]);
 
   // Reset the highlight to the top whenever the query changes (render-time
   // reset, the React-recommended pattern — no effect needed).
@@ -102,16 +105,16 @@ export function CommandPalette() {
 
   const jump = useCallback(
     (cmd: Command) => {
-      const id = commandId(cmd);
+      const id = commandId(tool.id, cmd);
       close();
-      if (pathname === "/") {
+      if (pathname === tool.basePath) {
         flashTo(id, Boolean(reduce));
       } else {
-        // Land on the home grid, then let it flash the target on arrival.
-        router.push(`/#${id}`);
+        // Land on the cheat-sheet grid, then let it flash the target on arrival.
+        router.push(`${tool.basePath}#${id}`);
       }
     },
-    [close, pathname, router, reduce],
+    [close, pathname, router, reduce, tool.id, tool.basePath],
   );
 
   // Global open triggers: `/`, Cmd/Ctrl-K, and the visible launcher button.
@@ -255,10 +258,11 @@ export function CommandPalette() {
               ) : (
                 results.map((r, i) => {
                   const active = i === selected;
-                  const accent = ACCENT[accentFor(r.cmd.cat)];
+                  const accent =
+                    ACCENT[tool.categoryAccent[r.cmd.cat] ?? "subtle"];
                   return (
                     <button
-                      key={commandId(r.cmd) + i}
+                      key={commandId(tool.id, r.cmd) + i}
                       type="button"
                       role="option"
                       id={`cmdk-opt-${i}`}

@@ -63,8 +63,10 @@ export function scoreCommand(query: string, cmd: Command): FuzzyMatch | null {
   const secondary = [
     cmd.cat,
     cmd.default ?? "",
+    cmd.mode,
     ...cmd.keys,
     ...cmd.tmuxcmd,
+    ...cmd.excmd,
     ...cmd.shell,
     ...cmd.keywords,
   ];

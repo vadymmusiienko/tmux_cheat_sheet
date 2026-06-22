@@ -1,7 +1,7 @@
-/** Central place for cross-site links. */
+/** Central place for site-wide links and the cross-tool routes. */
 
-export const REPO_URL = "https://github.com/vadymmusiienko/tmux_cheat_sheet/";
+export const REPO_URL = "https://github.com/vadymmusiienko/cheatsheets/";
 
-// TODO: set this once the Vim cheat sheet site exists. Used by the brand
-// switcher and the footer to point at the sibling site.
-export const VIM_URL = "#";
+/** Base routes for each cheatsheet (used by nav, brand switcher, footer). */
+export const TMUX_PATH = "/tmux";
+export const VIM_PATH = "/vim";

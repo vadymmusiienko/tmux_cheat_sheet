@@ -75,7 +75,7 @@ tmux -V`}
           I drive most of this through shell aliases (see the{" "}
           <a
             className="text-pine underline-offset-2 hover:underline"
-            href="/aliases"
+            href="/tmux/aliases"
           >
             Aliases
           </a>{" "}
@@ -108,7 +108,10 @@ tmux kill-session -t work # kill "work"`}
           Throughout this site,{" "}
           <span className="font-mono text-gold-text">prefix</span> means{" "}
           <span className="font-mono">Ctrl-Space</span>. Head to the{" "}
-          <a className="text-pine underline-offset-2 hover:underline" href="/">
+          <a
+            className="text-pine underline-offset-2 hover:underline"
+            href="/tmux"
+          >
             Cheat Sheet
           </a>{" "}
           for everything you can do after it.

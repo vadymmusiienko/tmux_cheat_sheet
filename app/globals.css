@@ -133,6 +133,78 @@
   --glow: transparent;
 }
 
+/* Vim — One Dark (vim default) */
+[data-theme="vim-onedark"] {
+  --base: #282c34;
+  --ink: #1b1f27;
+  --surface: #2c313a;
+  --overlay: #353b45;
+  --muted: #828997;
+  --subtle: #abb2bf;
+  --text: #c8ccd4;
+  --love: #e06c75;
+  --gold: #e5c07b;
+  --rose: #d19a66;
+  --pine: #61afef;
+  --foam: #98c379;
+  --iris: #c678dd;
+  --gold-text: var(--gold);
+  --rose-text: var(--rose);
+  --iris-text: var(--iris);
+  --hl-low: #2c313a;
+  --hl-med: #353b45;
+  --hl-high: #3e4451;
+  --glow: rgba(152, 195, 121, 0.05);
+}
+
+/* Vim — Tokyo Night */
+[data-theme="vim-tokyonight"] {
+  --base: #1a1b26;
+  --ink: #15161e;
+  --surface: #1f2335;
+  --overlay: #292e42;
+  --muted: #565f89;
+  --subtle: #9aa5ce;
+  --text: #c0caf5;
+  --love: #f7768e;
+  --gold: #e0af68;
+  --rose: #ff9e64;
+  --pine: #7aa2f7;
+  --foam: #9ece6a;
+  --iris: #bb9af7;
+  --gold-text: var(--gold);
+  --rose-text: var(--rose);
+  --iris-text: var(--iris);
+  --hl-low: #1f2335;
+  --hl-med: #292e42;
+  --hl-high: #3b4261;
+  --glow: rgba(122, 162, 247, 0.06);
+}
+
+/* Vim — Paper (light) */
+[data-theme="vim-paper"] {
+  --base: #f6f4ee;
+  --ink: #f6f4ee;
+  --surface: #fffdf7;
+  --overlay: #e9e5da;
+  --muted: #8a8678;
+  --subtle: #6b685c;
+  --text: #3a3a36;
+  --love: #b03a3a;
+  --gold: #9c7414;
+  --rose: #a8521f;
+  --pine: #2a6f8e;
+  --foam: #4d7a2f;
+  --iris: #7a5099;
+  --gold-text: #7a5a10;
+  --rose-text: #8f4519;
+  --iris-text: #5f3f7a;
+  --hl-low: #efece3;
+  --hl-med: #e4e0d5;
+  --hl-high: #d6d1c4;
+  --glow: transparent;
+}
+
 /* ----------------------------------------------------------------------------
    Base
 ---------------------------------------------------------------------------- */

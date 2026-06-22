@@ -20,7 +20,7 @@ function PaneBody({
         active ? "border-pine/70" : "border-overlay"
       }`}
     >
-      <div className="mb-1 truncate font-mono text-[10px] text-muted">
+      <div className="mb-1 truncate pr-12 font-mono text-[10px] text-muted">
         {path}
       </div>
       <div className="flex flex-col gap-0.5 font-mono text-[11px] leading-snug">
@@ -95,7 +95,7 @@ export function TerminalHero() {
 
         <div className="flex w-[44%] flex-col gap-1.5">
           <motion.div variants={pane} className="relative flex-1">
-            <span className="absolute -left-1 -top-2 z-10">
+            <span className="absolute -right-1 -top-2 z-10">
               <motion.span variants={tag} className="keycap !text-[10px]">
                 prefix \
               </motion.span>
@@ -111,7 +111,7 @@ export function TerminalHero() {
           </motion.div>
 
           <motion.div variants={pane} className="relative flex-1">
-            <span className="absolute -left-1 -top-2 z-10">
+            <span className="absolute -right-1 -top-2 z-10">
               <motion.span variants={tag} className="keycap !text-[10px]">
                 prefix -
               </motion.span>

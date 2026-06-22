@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { VIM_URL } from "@/lib/site";
+import { useTool } from "./ToolContext";
+import { ACCENT } from "./accent";
+import { TOOLS } from "@/lib/tools";
 
 export function BrandSwitcher() {
+  const tool = useTool();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const brand = ACCENT[tool.brandAccent];
 
   useEffect(() => {
     if (!open) return;
@@ -33,8 +37,10 @@ export function BrandSwitcher() {
         onClick={() => setOpen((o) => !o)}
         className="group flex items-center"
       >
-        <span className="flex h-8 items-center rounded-l-md bg-gold pl-2.5 pr-2 font-mono text-sm font-semibold text-ink">
-          tmux
+        <span
+          className={`flex h-8 items-center rounded-l-md pl-2.5 pr-2 font-mono text-sm font-semibold text-ink ${brand.solid}`}
+        >
+          {tool.name}
           <svg
             viewBox="0 0 12 12"
             aria-hidden
@@ -46,7 +52,7 @@ export function BrandSwitcher() {
         </span>
         <span
           aria-hidden
-          className="h-8 w-0 border-y-[16px] border-l-[11px] border-y-transparent border-l-gold"
+          className={`h-8 w-0 border-y-[16px] border-l-[11px] border-y-transparent ${brand.borderL}`}
         />
       </button>
 
@@ -58,35 +64,26 @@ export function BrandSwitcher() {
           <p className="px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-muted">
             cheat sheets
           </p>
-          <Link
-            href="/"
-            role="menuitem"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2.5 px-3 py-2 font-mono text-xs text-text transition-colors hover:bg-overlay"
-          >
-            <span className="inline-block h-2 w-2 rounded-full bg-gold" />
-            tmux cheatsheet
-            <span className="ml-auto text-foam">on</span>
-          </Link>
-          <a
-            href={VIM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            role="menuitem"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2.5 px-3 py-2 font-mono text-xs text-subtle transition-colors hover:bg-overlay hover:text-text"
-          >
-            <span className="inline-block h-2 w-2 rounded-full bg-pine" />
-            vim cheatsheet
-            <svg
-              viewBox="0 0 12 12"
-              aria-hidden
-              className="ml-auto h-3 w-3"
-              fill="currentColor"
-            >
-              <path d="M3.5 3.5h5v5h-1.2V5.55L4.3 8.45l-.85-.85 2.9-2.9H3.5Z" />
-            </svg>
-          </a>
+          {TOOLS.map((t) => {
+            const active = t.id === tool.id;
+            const dot = ACCENT[t.brandAccent].dot;
+            return (
+              <Link
+                key={t.id}
+                href={t.basePath}
+                role="menuitem"
+                aria-current={active ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-2.5 px-3 py-2 font-mono text-xs transition-colors hover:bg-overlay ${
+                  active ? "text-text" : "text-subtle hover:text-text"
+                }`}
+              >
+                <span className={`inline-block h-2 w-2 rounded-full ${dot}`} />
+                {t.name} cheatsheet
+                {active && <span className="ml-auto text-foam">on</span>}
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
