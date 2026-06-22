@@ -6,11 +6,14 @@ export function Footer() {
           <span className="text-pine">~/.config/tmux/tmux.conf</span> · Rose
           Pine · tmux 3.6
         </p>
-        <p>
-          Generated from{" "}
-          <code className="font-mono text-subtle">data/tmux.json</code> — the
-          same source as the README.
-        </p>
+        <a
+          href="https://github.com/vadymmusiienko/tmux_cheat_sheet/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-subtle transition-colors hover:text-text"
+        >
+          github.com/vadymmusiienko/tmux_cheat_sheet
+        </a>
       </div>
     </footer>
   );

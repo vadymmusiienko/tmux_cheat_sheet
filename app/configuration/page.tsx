@@ -21,7 +21,7 @@ export default function Configuration() {
       <PageHeader
         eyebrow="window 2 · config"
         title="Configuration & Theming"
-        lead="A tour of the choices in my tmux.conf — what I changed from the defaults and why."
+        lead="A tour of the choices in my tmux.conf: what I changed from the defaults and why."
       />
 
       <Section title="Prefix &amp; reload">
@@ -97,7 +97,7 @@ set -as terminal-features ",*:RGB"`}
         </CodeBlock>
         <Callout accent="iris">
           <span className="font-mono text-iris">terminal-features</span> is a
-          server option, so it applies to clients on their next attach — detach
+          server option, so it applies to clients on their next attach. Detach
           and reattach to see truecolor kick in.
         </Callout>
       </Section>

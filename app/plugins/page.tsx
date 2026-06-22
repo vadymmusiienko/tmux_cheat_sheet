@@ -21,7 +21,7 @@ export default function Plugins() {
       <PageHeader
         eyebrow="window 3 · plugins"
         title="Plugins & Tools"
-        lead="Everything is managed by TPM. These five plugins do the heavy lifting — sane defaults, seamless Neovim navigation, and sessions that survive reboots."
+        lead="Everything is managed by TPM. These five plugins do the heavy lifting: sane defaults, seamless Neovim navigation, and sessions that survive reboots."
       />
 
       <Section title="Managing plugins (TPM)">
@@ -45,19 +45,19 @@ export default function Plugins() {
       <Section title="The plugins">
         <FeatureGrid>
           <Feature name="tmux-sensible" role="defaults">
-            A baseline of settings most people end up wanting anyway — faster{" "}
+            A baseline of settings most people end up wanting anyway: faster{" "}
             <span className="font-mono">escape-time</span>,{" "}
             <span className="font-mono">focus-events</span>, bigger history, and
             saner key behavior. I rely on it so my config stays short.
           </Feature>
           <Feature name="vim-tmux-navigator" role="navigation">
             Makes <span className="font-mono text-foam">Ctrl-h/j/k/l</span> move
-            between tmux panes and Neovim splits with the same keys — you stop
+            between tmux panes and Neovim splits with the same keys, so you stop
             thinking about the boundary entirely.
           </Feature>
           <Feature name="tmux-resurrect" role="persistence">
-            Saves and restores your full session layout — windows, panes, and
-            pane contents — on demand with <KeyCombo value="prefix S" /> and{" "}
+            Saves and restores your full session layout (windows, panes, and
+            pane contents) on demand with <KeyCombo value="prefix S" /> and{" "}
             <KeyCombo value="prefix R" />.
           </Feature>
           <Feature name="tmux-continuum" role="persistence">
@@ -66,7 +66,7 @@ export default function Plugins() {
             environment comes back after a reboot with no keystrokes at all.
           </Feature>
           <Feature name="tpm" role="manager">
-            The plugin manager itself — it clones, loads, and updates everything
+            The plugin manager itself. It clones, loads, and updates everything
             above from the list at the bottom of{" "}
             <span className="font-mono">tmux.conf</span>.
           </Feature>

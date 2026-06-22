@@ -54,9 +54,8 @@ export default function Aliases() {
         <span className="mt-6 block">
           These live in{" "}
           <code className="font-mono text-foam">~/.config/zsh/zsh_aliases</code>{" "}
-          and are pulled into this page automatically by{" "}
-          <code className="font-mono">build.py</code> — add a new alias,
-          rebuild, and it shows up here.
+          in my dotfiles. The list on this page is stored in{" "}
+          <code className="font-mono">data/aliases.json</code>.
         </span>
       </Callout>
     </article>

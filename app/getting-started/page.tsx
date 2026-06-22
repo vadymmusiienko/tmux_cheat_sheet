@@ -21,7 +21,7 @@ export default function GettingStarted() {
       <PageHeader
         eyebrow="window 1 · setup"
         title="Getting Started"
-        lead="tmux is a terminal multiplexer: many terminal sessions, windows split into panes, all in one place — and they keep running after you disconnect."
+        lead="tmux is a terminal multiplexer: many terminal sessions, windows split into panes, all in one place, and they keep running after you disconnect."
       />
 
       <Section title="What is tmux?">
@@ -31,7 +31,7 @@ export default function GettingStarted() {
           session holds <strong className="text-text">windows</strong> (like
           tabs), and each window splits into{" "}
           <strong className="text-text">panes</strong>. Detach, reboot your
-          terminal app, reattach — everything is exactly where you left it.
+          terminal app, reattach, and everything is exactly where you left it.
         </P>
         <Callout accent="foam">
           The whole point: long-running work (servers, builds, SSH sessions)
@@ -92,7 +92,7 @@ tmux kill-session -t work # kill "work"`}
         <P>
           Almost every tmux shortcut starts with the{" "}
           <strong className="text-text">prefix</strong>. The default is{" "}
-          <C>Ctrl-b</C> — I&apos;ve remapped mine to{" "}
+          <C>Ctrl-b</C>, but I&apos;ve remapped mine to{" "}
           <span className="font-mono text-foam">Ctrl-Space</span>, which is far
           easier to reach.
         </P>

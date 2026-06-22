@@ -29,7 +29,7 @@ function Hero() {
           <span className="cursor-blink text-iris">_</span>
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-subtle">
-          My personal cheat sheet — every shortcut and command, with my custom{" "}
+          My personal cheat sheet. Every shortcut and command, with my custom{" "}
           <span className="font-mono text-foam">Ctrl-Space</span> bindings up
           front and the tmux defaults noted right beside them.
         </p>
@@ -71,7 +71,7 @@ function JumpBar() {
         href="#essentials"
         className="rounded-md border border-gold/30 bg-gold/[0.06] px-2.5 py-1 font-mono text-xs text-gold transition-colors hover:bg-gold/15"
       >
-        ⚡ essentials
+        essentials
       </a>
       {ALL_GROUPS.map((g) => (
         <a

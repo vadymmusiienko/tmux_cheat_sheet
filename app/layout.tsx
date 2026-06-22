@@ -12,10 +12,12 @@ const jetbrains = JetBrains_Mono({
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
-  title: "tmux cheat sheet — my config",
+  title: "tmux cheat sheet",
   description:
-    "A personal tmux cheat sheet: every command and shortcut, with my custom bindings and the tmux defaults. Rose Pine themed.",
+    "A personal tmux cheat sheet: every command and shortcut, with my custom bindings and the tmux defaults.",
 };
+
+const themeInit = `(function(){try{var t=localStorage.getItem('tmux-theme');if(t){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -25,8 +27,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="rose-pine"
       className={`${inter.variable} ${jetbrains.variable} ${space.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body className="min-h-screen">
         <TopNav />
         <main className="mx-auto w-full max-w-6xl px-4 py-10">{children}</main>
