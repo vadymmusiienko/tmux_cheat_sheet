@@ -35,7 +35,7 @@ export default function Aliases() {
                 className={i % 2 ? "bg-surface/30" : "bg-transparent"}
               >
                 <td className="whitespace-nowrap px-5 py-3 align-top">
-                  <code className="rounded bg-overlay px-2 py-0.5 font-mono text-sm font-semibold text-gold">
+                  <code className="rounded bg-overlay px-2 py-0.5 font-mono text-sm font-semibold text-gold-text">
                     {a.name}
                   </code>
                 </td>

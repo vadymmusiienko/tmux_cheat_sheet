@@ -33,9 +33,8 @@ export function CommandCard({
       <div className="flex items-start justify-between gap-2">
         <p className="text-sm leading-snug text-text">{cmd.desc}</p>
         {cmd.mine && (
-          <span
-            className={`shrink-0 rounded bg-hl-low px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${a.text}`}
-          >
+          <span className="inline-flex shrink-0 items-center gap-1 rounded bg-hl-low px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-subtle">
+            <span className={`h-1.5 w-1.5 rounded-full ${a.dot}`} />
             custom
           </span>
         )}
@@ -48,8 +47,8 @@ export function CommandCard({
       )}
 
       {cmd.default && (
-        <p className="text-xs text-muted">
-          default: <code className="font-mono text-subtle">{cmd.default}</code>
+        <p className="text-xs text-subtle">
+          default: <code className="font-mono text-text">{cmd.default}</code>
         </p>
       )}
 

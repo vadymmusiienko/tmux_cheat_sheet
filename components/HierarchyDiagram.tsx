@@ -40,7 +40,7 @@ export function HierarchyDiagram() {
       viewport={{ once: true, amount: 0.4 }}
       className="rounded-xl border border-iris/50 bg-surface/50 p-4"
     >
-      <p className={`${label} text-iris`}>session · main</p>
+      <p className={`${label} text-iris-text`}>session · main</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {/* window 0 */}
         <motion.div

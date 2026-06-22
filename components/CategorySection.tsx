@@ -15,7 +15,7 @@ export function CategorySection({ group }: { group: CategoryGroup }) {
         <h2 className="font-display text-lg font-semibold text-text">
           {group.cat}
         </h2>
-        <span className="font-mono text-xs text-muted">
+        <span className="font-mono text-xs text-subtle">
           {group.items.length}
         </span>
         <span className="h-px flex-1 bg-overlay" />

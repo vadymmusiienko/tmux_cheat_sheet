@@ -81,8 +81,8 @@ export default function Plugins() {
         </P>
         <Callout accent="rose">
           Save bindings are remapped to plain{" "}
-          <span className="font-mono text-rose">S</span> /{" "}
-          <span className="font-mono text-rose">R</span> (the defaults are{" "}
+          <span className="font-mono text-rose-text">S</span> /{" "}
+          <span className="font-mono text-rose-text">R</span> (the defaults are{" "}
           <span className="font-mono">Ctrl-s</span> /{" "}
           <span className="font-mono">Ctrl-r</span>).
         </Callout>

@@ -13,7 +13,7 @@ const THEMES = [
     id: "gruvbox-light",
     name: "Gruvbox Light",
     bg: "#fbf1c7",
-    accent: "#b57614",
+    accent: "#966111",
   },
   { id: "rose-pine", name: "Rose Pine", bg: "#191724", accent: "#c4a7e7" },
   {

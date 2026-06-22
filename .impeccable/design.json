@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-22T00:00:00.000Z",
+  "title": "Design System: tmux cheat sheet",
+  "extensions": {
+    "colorMeta": {
+      "base": {
+        "role": "neutral",
+        "displayName": "Pane Background",
+        "canonical": "#282828",
+        "note": "Body canvas / deepest layer. Per theme: gruvbox-dark #282828, rose-pine #191724, rose-pine-dawn #faf4ed, gruvbox-light #fbf1c7.",
+        "tonalRamp": [
+          "#1d2021",
+          "#282828",
+          "#32302f",
+          "#3c3836",
+          "#504945",
+          "#665c54",
+          "#7c6f64",
+          "#928374"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Reading Ink",
+        "canonical": "#ebdbb2",
+        "note": "Highest-contrast text role. Per theme: gruvbox-dark #ebdbb2, rose-pine #e0def4, rose-pine-dawn #575279, gruvbox-light #3c3836.",
+        "tonalRamp": [
+          "#3c3836",
+          "#504945",
+          "#665c54",
+          "#7c6f64",
+          "#928374",
+          "#a89984",
+          "#bdae93",
+          "#ebdbb2"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Prefix Gold",
+        "canonical": "#fabd2f",
+        "note": "Signature accent: prefix keycap, custom-binding highlights, essentials pill. Per theme: gruvbox-dark #fabd2f, rose-pine #f6c177, rose-pine-dawn #ea9d34, gruvbox-light #966111. When used as TEXT on light themes, use the gold-text shade (dawn #8e5f20, gruvbox-light #84560f).",
+        "tonalRamp": [
+          "#5c3f0a",
+          "#7a5410",
+          "#9a6c16",
+          "#b8851f",
+          "#d4a02a",
+          "#fabd2f",
+          "#fbcb5e",
+          "#fcdd95"
+        ]
+      },
+      "rose": {
+        "role": "secondary",
+        "displayName": "Active Window Rose",
+        "canonical": "#fe8019",
+        "note": "Active nav window (status-line current window). Per theme: gruvbox-dark #fe8019, rose-pine #ebbcba, rose-pine-dawn #d7827e, gruvbox-light #af3a03.",
+        "tonalRamp": [
+          "#5e2c05",
+          "#7d3a07",
+          "#9d490a",
+          "#bd580d",
+          "#dd6913",
+          "#fe8019",
+          "#fe9a47",
+          "#feb87e"
+        ]
+      },
+      "iris": {
+        "role": "secondary",
+        "displayName": "Command Iris",
+        "canonical": "#d3869b",
+        "note": "Focus rings, selection, command-mode ':' prompt. Per theme: gruvbox-dark #d3869b, rose-pine #c4a7e7, rose-pine-dawn #907aa9, gruvbox-light #8f3f71.",
+        "tonalRamp": [
+          "#4a2531",
+          "#633240",
+          "#7d4051",
+          "#985063",
+          "#b36879",
+          "#d3869b",
+          "#dfa1b3",
+          "#ebc0cc"
+        ]
+      },
+      "foam": {
+        "role": "secondary",
+        "displayName": "Shell Foam",
+        "canonical": "#8ec07c",
+        "note": "Shell/command code text and the '$' prompt cursor. Per theme: gruvbox-dark #8ec07c, rose-pine #9ccfd8, rose-pine-dawn #56949f, gruvbox-light #427b58.",
+        "tonalRamp": [
+          "#243b1c",
+          "#345428",
+          "#456e36",
+          "#578746",
+          "#71a25c",
+          "#8ec07c",
+          "#a9d09b",
+          "#c5e0bb"
+        ]
+      },
+      "pine": {
+        "role": "secondary",
+        "displayName": "Path Pine",
+        "canonical": "#83a598",
+        "note": "Config-path label and active-pane border. Per theme: gruvbox-dark #83a598, rose-pine #31748f, rose-pine-dawn #286983, gruvbox-light #076678.",
+        "tonalRamp": [
+          "#23332d",
+          "#324a41",
+          "#426056",
+          "#54776b",
+          "#688d81",
+          "#83a598",
+          "#a0bbb1",
+          "#bdd1ca"
+        ]
+      },
+      "love": {
+        "role": "tertiary",
+        "displayName": "Kill Love",
+        "canonical": "#fb4934",
+        "note": "Destructive / kill commands; first terminal traffic-light. Per theme: gruvbox-dark #fb4934, rose-pine #eb6f92, rose-pine-dawn #b4637a, gruvbox-light #9d0006.",
+        "tonalRamp": [
+          "#5e1109",
+          "#7d180d",
+          "#9d1f12",
+          "#bd2a1b",
+          "#dd382a",
+          "#fb4934",
+          "#fc7263",
+          "#fd9d92"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Card Surface",
+        "canonical": "#32302f",
+        "note": "First tonal step-up: cards (70% opacity), nav, inputs.",
+        "tonalRamp": [
+          "#1d2021",
+          "#282828",
+          "#32302f",
+          "#3c3836",
+          "#504945",
+          "#665c54",
+          "#7c6f64",
+          "#928374"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Metadata",
+        "canonical": "#9b8e80",
+        "note": "Tertiary/near-decorative text only: separators, footer meta, demo lines. Clears 4.5:1 on base. Route placeholders and small content text to 'subtle' (the body-text floor), not here."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero h1 only. Space Grotesk 700, paired with a blinking iris cursor."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Category section titles beside an accent dot, count, and hairline rule."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Inter prose. Card descriptions drop to 0.875rem snug. Cap measure 65-75ch."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "JetBrains Mono for keys, commands, paths, counts, status, the uppercase tracked config-path kicker."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hero-lift",
+        "value": "0 20px 25px -5px rgba(0,0,0,0.2)",
+        "purpose": "The single deliberate shadow: lifts the TerminalHero mockup like a focused window."
+      },
+      {
+        "name": "keycap-edge",
+        "value": "inset 0 -2px 0 0 var(--color-hl-high, #504945)",
+        "purpose": "Faux-physical depth via a 3px bottom border on keys; makes a key read as pressable."
+      }
+    ],
+    "motion": [
+      {
+        "name": "blink",
+        "value": "blink 1.1s step-end infinite",
+        "purpose": "Terminal cursor glyph. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "fade-up",
+        "value": "fade-up 0.4s ease both",
+        "purpose": "Quiet entrance: opacity 0->1, translateY 6px->0. Disabled under reduced motion."
+      },
+      {
+        "name": "card-stagger",
+        "value": "framer-motion layout, 0.25s, delay min(index,8)*0.03s",
+        "purpose": "Command-card filter reveal; exit scales to 0.96."
+      },
+      {
+        "name": "hero-stagger",
+        "value": "framer-motion staggerChildren 0.55s, ease-out",
+        "purpose": "TerminalHero pane scale-in. Collapses to no-op under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "container", "value": "1152px (max-w-6xl)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Keycap",
+      "kind": "custom",
+      "refersTo": "keycap",
+      "description": "A single physical key. The signature tactile detail: a 3px bottom border makes it read as pressable.",
+      "html": "<kbd class=\"ds-keycap\">Ctrl</kbd>",
+      "css": ".ds-keycap { display: inline-flex; align-items: center; justify-content: center; min-width: 1.65rem; padding: 0.15rem 0.45rem; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace; font-size: 0.8rem; line-height: 1; color: var(--color-text, #ebdbb2); background-color: var(--color-overlay, #3c3836); border: 1px solid var(--color-hl-high, #504945); border-bottom-width: 3px; border-radius: 6px; white-space: nowrap; }"
+    },
+    {
+      "name": "Prefix Keycap",
+      "kind": "custom",
+      "refersTo": "keycap-prefix",
+      "description": "The tmux prefix key, always the loudest key: filled gold with ink text.",
+      "html": "<kbd class=\"ds-keycap-prefix\">prefix</kbd>",
+      "css": ".ds-keycap-prefix { display: inline-flex; align-items: center; justify-content: center; min-width: 1.65rem; padding: 0.15rem 0.45rem; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.8rem; font-weight: 600; line-height: 1; color: var(--color-ink, #1d2021); background-color: var(--color-gold, #fabd2f); border: 1px solid color-mix(in srgb, var(--color-gold, #fabd2f) 50%, transparent); border-bottom-width: 3px; border-radius: 6px; white-space: nowrap; }"
+    },
+    {
+      "name": "Command Card",
+      "kind": "card",
+      "refersTo": "command-card",
+      "description": "A command rendered as a tmux pane: description, custom pill, keys, default note, shell code. Hover brightens the border to the category accent.",
+      "html": "<div class=\"ds-cmd-card\"><div class=\"ds-cmd-head\"><p class=\"ds-cmd-desc\">Split the window horizontally</p><span class=\"ds-cmd-pill\">custom</span></div><div class=\"ds-cmd-keys\"><kbd class=\"ds-keycap-prefix\">prefix</kbd><kbd class=\"ds-keycap\">\\</kbd></div><p class=\"ds-cmd-default\">default: <code>prefix \"</code></p><code class=\"ds-cmd-code\">tmux split-window -h</code></div>",
+      "css": ".ds-cmd-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 8px; border: 1px solid var(--color-overlay, #3c3836); background-color: color-mix(in srgb, var(--color-surface, #32302f) 70%, transparent); transition: border-color 0.2s; } .ds-cmd-card:hover { border-color: color-mix(in srgb, var(--color-gold, #fabd2f) 60%, transparent); } .ds-cmd-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; } .ds-cmd-desc { margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.375; color: var(--color-text, #ebdbb2); } .ds-cmd-pill { flex-shrink: 0; border-radius: 4px; background: var(--color-hl-low, #32302f); padding: 2px 6px; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-gold, #fabd2f); } .ds-cmd-keys { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; } .ds-cmd-default { margin: 0; font-family: Inter, sans-serif; font-size: 0.75rem; color: var(--color-muted, #928374); } .ds-cmd-default code { font-family: 'JetBrains Mono', monospace; color: var(--color-subtle, #a89984); } .ds-cmd-code { display: block; overflow-x: auto; border-radius: 4px; background: color-mix(in srgb, var(--color-base, #282828) 70%, transparent); padding: 4px 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-foam, #8ec07c); }"
+    },
+    {
+      "name": "Search Bar",
+      "kind": "input",
+      "refersTo": "search-bar",
+      "description": "Command-mode search: an iris ':' prompt leads the field; the container border shifts to iris on focus-within. A keycap hint sits at the end.",
+      "html": "<div class=\"ds-search\"><span class=\"ds-search-prompt\">:</span><input class=\"ds-search-input\" type=\"search\" placeholder=\"search commands, keys, descriptions…\" aria-label=\"Search\"><kbd class=\"ds-keycap\">⌘K</kbd></div>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 12px; border-radius: 8px; border: 1px solid var(--color-overlay, #3c3836); background: var(--color-surface, #32302f); padding: 12px 16px; transition: border-color 0.2s; } .ds-search:focus-within { border-color: var(--color-iris, #d3869b); } .ds-search-prompt { user-select: none; font-family: 'JetBrains Mono', monospace; color: var(--color-iris, #d3869b); } .ds-search-input { width: 100%; background: transparent; border: none; outline: none; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--color-text, #ebdbb2); } .ds-search-input::placeholder { color: var(--color-muted, #928374); } .ds-keycap { display: inline-flex; align-items: center; padding: 0.15rem 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--color-text, #ebdbb2); background: var(--color-overlay, #3c3836); border: 1px solid var(--color-hl-high, #504945); border-bottom-width: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Nav Window (active)",
+      "kind": "nav",
+      "refersTo": "nav-tab-active",
+      "description": "A nav link styled as a tmux status-line window: index + name. Active is a filled rose tab with ink text; inactive fills overlay on hover.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-window ds-window-active\"><span class=\"ds-window-idx\">0</span>cheat</a><a class=\"ds-window\"><span class=\"ds-window-idx\">1</span>setup</a></nav>",
+      "css": ".ds-nav { display: inline-flex; gap: 4px; } .ds-window { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--color-subtle, #a89984); text-decoration: none; transition: background-color 0.2s, color 0.2s; cursor: pointer; } .ds-window:hover { background: var(--color-overlay, #3c3836); color: var(--color-text, #ebdbb2); } .ds-window-idx { color: var(--color-muted, #928374); } .ds-window-active { background: var(--color-rose, #fe8019); color: var(--color-ink, #1d2021); font-weight: 500; } .ds-window-active .ds-window-idx { color: color-mix(in srgb, var(--color-ink, #1d2021) 70%, transparent); }"
+    },
+    {
+      "name": "Jump Pill",
+      "kind": "chip",
+      "refersTo": "custom-pill",
+      "description": "Ghost category pill from the jump bar: an accent dot + lowercase mono label; border and text brighten on hover.",
+      "html": "<a class=\"ds-pill\"><span class=\"ds-pill-dot\"></span>panes</a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; border: 1px solid var(--color-overlay, #3c3836); background: color-mix(in srgb, var(--color-surface, #32302f) 60%, transparent); padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-subtle, #a89984); text-decoration: none; transition: border-color 0.2s, color 0.2s; cursor: pointer; } .ds-pill:hover { border-color: var(--color-hl-high, #504945); color: var(--color-text, #ebdbb2); } .ds-pill-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-iris, #d3869b); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lived-In Config",
+    "overview": "This is not a website about tmux; it is a tmux setup that happens to live in a browser. The whole system answers to one idea — a power user's dotfiles, ported to the web with the same care they'd give their .tmux.conf. The top nav is a status line. Search is command mode. Command cards read like panes. Single keys are physical keycaps. It borrows the tool's own grammar because the author actually lives in that grammar. The mood is dark, calm, and tiled by default; surfaces step up in tone rather than float on shadows. Color does the categorizing work (each command group owns one accent), and the four switchable palettes are treated as colorschemes, a first-class feature, not a gimmick toggle.",
+    "keyCharacteristics": [
+      "Terminal-native chrome: status-line nav, command-mode search, panes-as-cards.",
+      "Semantic-token theming — components never name a hex, only a role.",
+      "Four real palettes (Gruvbox Dark default, Rose Pine, Rose Pine Dawn, Gruvbox Light).",
+      "Flat by default; depth comes from tonal layering, not shadows.",
+      "Monospace is earned here — the subject is the terminal."
+    ],
+    "rules": [
+      {
+        "name": "The Colorscheme Rule",
+        "body": "No component may hard-code a hex. It references a semantic role, and the four html[data-theme] blocks repaint every role at once. Theming is a feature, not a skin.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accent-As-Category Rule",
+        "body": "An accent always means a command category. The dot, the pill, and the hover border of a card always agree. Never use an accent decoratively where it doesn't encode a group.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-Is-Content Rule",
+        "body": "Monospace is reserved for things that are literally terminal artifacts — keys, commands, paths, counts, status text. Never use it as decorative developer flavor on prose.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Pane Rule",
+        "body": "Surfaces are flat at rest and separated by tone and a 1px border, the way tmux separates panes. A drop shadow on a card is a bug; step its tone up or thicken its border instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do reference semantic roles only (bg-surface, text-pine, border-overlay). Never hard-code a hex in a component — the four themes depend on it.",
+      "Do keep an accent meaning a category: dot, custom pill, and card hover border must agree, sourced from components/accent.ts.",
+      "Do convey depth with tonal steps (base -> surface -> overlay -> hl-*) and 1px borders, per The Flat-Pane Rule.",
+      "Do reserve monospace (JetBrains Mono) for terminal artifacts and keep prose in Inter.",
+      "Do verify body text holds >=4.5:1 on all four themes; the light Rose Pine Dawn and Gruvbox Light palettes are where muted/subtle text gets risky.",
+      "Do give every animation a prefers-reduced-motion fallback, and every interactive element a 2px iris focus-visible ring."
+    ],
+    "donts": [
+      "Don't build a dense docs wall — no man-page text dumps. Every command is a scannable card with hierarchy and rhythm.",
+      "Don't go over-animated / flashy: no bounce, elastic, or attention-grabbing motion. The blink and the quiet fade-up are the ceiling.",
+      "Don't drift toward a generic SaaS landing: no gradient hero, no feature-card grid, no hero-metric blocks, no tiny uppercase tracked eyebrow above every section.",
+      "Don't add a drop shadow to a card. The only shadow in the system is the hero lift; depth elsewhere is tone + border.",
+      "Don't use border-left/border-right greater than 1px as a colored accent stripe. The keycap's 3px edge is a bottom border by design.",
+      "Don't use an accent color decoratively where it doesn't encode a category, and don't introduce a fifth theme without adding both the globals.css palette block and the ThemeSwitcher entry."
+    ]
+  }
+}

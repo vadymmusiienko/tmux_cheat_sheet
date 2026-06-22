@@ -26,8 +26,8 @@ function Hero() {
           ~/.config/tmux
         </p>
         <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-text sm:text-5xl">
-          tmux, the way <span className="text-gold">I</span> use it
-          <span className="cursor-blink text-iris">_</span>
+          tmux, the way <span className="text-gold-text">I</span> use it
+          <span className="cursor-blink text-iris-text">_</span>
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-relaxed text-subtle">
           My personal cheat sheet. Every shortcut and command, with my custom{" "}
@@ -39,7 +39,7 @@ function Hero() {
             <span className="text-text">{TOTAL}</span> commands
           </span>
           <span className="rounded-md bg-hl-low px-2.5 py-1 text-subtle">
-            <span className="text-gold">{CUSTOM}</span> custom
+            <span className="text-gold-text">{CUSTOM}</span> custom
           </span>
           <span className="rounded-md bg-hl-low px-2.5 py-1 text-subtle">
             <span className="text-text">{ALL_GROUPS.length}</span> categories
@@ -60,7 +60,7 @@ function JumpBar() {
     <nav className="mb-8 flex flex-wrap gap-2" aria-label="Jump to category">
       <a
         href="#essentials"
-        className="rounded-md border border-gold/30 bg-gold/[0.06] px-2.5 py-1 font-mono text-xs text-gold transition-colors hover:bg-gold/15"
+        className="rounded-md border border-gold/30 bg-gold/[0.06] px-2.5 py-1 font-mono text-xs text-gold-text transition-colors hover:bg-gold/15"
       >
         essentials
       </a>
@@ -108,7 +108,7 @@ export default function Home() {
         ) : (
           <div className="rounded-lg border border-dashed border-overlay bg-surface/40 px-6 py-16 text-center">
             <p className="font-mono text-sm text-subtle">
-              <span className="text-iris">:</span> no commands match{" "}
+              <span className="text-iris-text">:</span> no commands match{" "}
               <span className="text-text">{query}</span>
             </p>
             <p className="mt-2 text-xs text-muted">

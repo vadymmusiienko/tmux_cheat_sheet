@@ -7,7 +7,7 @@ export function EssentialsSection({ items }: { items: Command[] }) {
   return (
     <section id="essentials" className="mb-12 scroll-mt-36">
       <header className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h2 className="font-display text-lg font-semibold text-gold">
+        <h2 className="font-display text-lg font-semibold text-gold-text">
           Essentials
         </h2>
         <p className="text-sm text-subtle">

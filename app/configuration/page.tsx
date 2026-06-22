@@ -96,8 +96,8 @@ if-shell '[ "$(uname)" = "Darwin" ]' {
 set -as terminal-features ",*:RGB"`}
         </CodeBlock>
         <Callout accent="iris">
-          <span className="font-mono text-iris">terminal-features</span> is a
-          server option, so it applies to clients on their next attach. Detach
+          <span className="font-mono text-iris-text">terminal-features</span> is
+          a server option, so it applies to clients on their next attach. Detach
           and reattach to see truecolor kick in.
         </Callout>
       </Section>

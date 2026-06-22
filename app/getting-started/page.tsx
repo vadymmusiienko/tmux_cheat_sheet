@@ -106,7 +106,7 @@ tmux kill-session -t work # kill "work"`}
         </div>
         <Callout accent="gold">
           Throughout this site,{" "}
-          <span className="font-mono text-gold">prefix</span> means{" "}
+          <span className="font-mono text-gold-text">prefix</span> means{" "}
           <span className="font-mono">Ctrl-Space</span>. Head to the{" "}
           <a className="text-pine underline-offset-2 hover:underline" href="/">
             Cheat Sheet

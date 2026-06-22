@@ -33,7 +33,7 @@ export function SearchBar({ value, onChange, resultCount }: Props) {
     <div className="sticky top-14 z-20 -mx-4 mb-8 border-b border-overlay bg-base/80 px-4 py-4 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 rounded-lg border border-overlay bg-surface px-4 py-3 transition-colors focus-within:border-iris">
         {/* command-mode prompt */}
-        <span className="select-none font-mono text-iris">:</span>
+        <span className="select-none font-mono text-iris-text">:</span>
         <input
           ref={ref}
           type="search"
@@ -41,7 +41,7 @@ export function SearchBar({ value, onChange, resultCount }: Props) {
           onChange={(e) => onChange(e.target.value)}
           placeholder="search commands, keys, descriptions…"
           aria-label="Search tmux commands"
-          className="w-full bg-transparent font-mono text-sm text-text placeholder:text-muted focus:outline-none"
+          className="w-full bg-transparent font-mono text-sm text-text placeholder:text-subtle focus:outline-none"
         />
         {value ? (
           <span className="shrink-0 font-mono text-xs text-muted">
