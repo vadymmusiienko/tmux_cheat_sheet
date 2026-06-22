@@ -1,10 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { EASE_OUT_QUINT } from "@/lib/motion";
 
 /**
  * Animated session > window > pane diagram. Built from boxes (not raw SVG) so
- * it inherits the active theme's colors.
+ * it inherits the active theme's colors. The reveal only *settles* each box
+ * (transform, never opacity), so the diagram is fully visible by default —
+ * even with no JS or if the in-view observer never fires.
  */
 export function HierarchyDiagram() {
   const reduce = useReducedMotion();
@@ -19,12 +22,11 @@ export function HierarchyDiagram() {
     },
   };
   const item: Variants = {
-    hidden: reduce ? { opacity: 1 } : { opacity: 0, y: 6, scale: 0.98 },
+    hidden: reduce ? {} : { y: 8, scale: 0.97 },
     show: {
-      opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.35, ease: "easeOut" },
+      transition: { duration: 0.35, ease: EASE_OUT_QUINT },
     },
   };
 

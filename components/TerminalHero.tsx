@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 
 function PaneBody({
   path,
@@ -55,7 +56,7 @@ export function TerminalHero() {
     show: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: { duration: 0.4, ease: EASE_OUT_EXPO },
     },
   };
   const tag: Variants = {

@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { commands, commandId, accentFor } from "@/lib/data";
 import { scoreCommand } from "@/lib/fuzzy";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { ACCENT } from "./accent";
 import { KeyCombo } from "./KeyCombo";
 import type { Command } from "@/lib/types";
@@ -210,7 +211,7 @@ export function CommandPalette() {
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.98 }}
             transition={{
               duration: reduce ? 0 : 0.18,
-              ease: [0.16, 1, 0.3, 1],
+              ease: EASE_OUT_EXPO,
             }}
             className="relative flex max-h-[70vh] w-full max-w-xl flex-col overflow-hidden rounded-xl border border-hl-high bg-surface shadow-2xl shadow-black/40"
           >

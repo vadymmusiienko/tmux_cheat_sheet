@@ -42,6 +42,7 @@ export function ThemeSwitcher() {
   const [theme, setTheme] = useState<string>(DEFAULT);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const fadeTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     setTheme(document.documentElement.dataset.theme || DEFAULT);
@@ -65,7 +66,16 @@ export function ThemeSwitcher() {
   function choose(id: string) {
     setTheme(id);
     setOpen(false);
-    document.documentElement.dataset.theme = id;
+    const root = document.documentElement;
+    // Crossfade colors for the switch only, then clear the class so it never
+    // affects ordinary hovers/transitions. Reduced motion neutralizes it.
+    root.classList.add("theme-transition");
+    root.dataset.theme = id;
+    window.clearTimeout(fadeTimer.current);
+    fadeTimer.current = window.setTimeout(
+      () => root.classList.remove("theme-transition"),
+      300,
+    );
     try {
       localStorage.setItem("tmux-theme", id);
     } catch {

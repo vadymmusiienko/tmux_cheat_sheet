@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { KeyComboList } from "./KeyCombo";
 import { ACCENT } from "./accent";
+import { EASE_OUT_QUINT } from "@/lib/motion";
 import type { AccentColor, Command } from "@/lib/types";
 
 export function CommandCard({
@@ -30,6 +31,7 @@ export function CommandCard({
       exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
       transition={{
         duration: 0.25,
+        ease: EASE_OUT_QUINT,
         delay: reduce ? 0 : Math.min(index, 8) * 0.03,
       }}
       className={`group flex scroll-mt-28 flex-col gap-3 rounded-lg border border-overlay bg-surface/70 p-4 transition-colors duration-200 ${a.hoverBorder}`}

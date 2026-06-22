@@ -30,6 +30,10 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
   --font-display: var(--font-space), var(--font-inter), sans-serif;
+
+  /* Designed easing — confident deceleration, never bounce. */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Gruvbox Dark (default) */
@@ -235,7 +239,7 @@ body {
   }
 }
 .animate-fade-up {
-  animation: fade-up 0.4s ease both;
+  animation: fade-up 0.4s var(--ease-out-quint) both;
 }
 
 /* Pulse a command card after the palette jumps to it. */
@@ -252,7 +256,20 @@ body {
   }
 }
 .cmd-flash {
-  animation: cmd-flash 1.4s ease-out forwards;
+  animation: cmd-flash 1.4s var(--ease-out-expo) forwards;
+}
+
+/* Theme switch: briefly crossfade colors like a terminal redraw. The class is
+   added to <html> only for the duration of a switch (see ThemeSwitcher). */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 0.25s var(--ease-out-quint),
+    border-color 0.25s var(--ease-out-quint),
+    color 0.25s var(--ease-out-quint),
+    fill 0.25s var(--ease-out-quint);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -298,7 +298,11 @@ A faux terminal window: traffic-light dots (`love`/`gold`/`pine`), a `tmux ~ mai
 
 ### Motion
 
-CSS keyframes (`blink` for the cursor, `fade-up` for entrances) plus framer-motion for card layout and the hero stagger. Easing is `ease-out`; nothing bounces. **Every animation has a `prefers-reduced-motion` path** — blink and fade-up stop, framer variants collapse to opacity-only or no-op, and `transition` is globally neutralized.
+CSS keyframes (`blink` for the cursor, `fade-up` for entrances, `cmd-flash` for the palette jump) plus framer-motion for card layout, the hero/diagram staggers, and the palette. **Easing is a shared system, not a default:** `--ease-out-quint` (`cubic-bezier(0.22,1,0.36,1)`) and `--ease-out-expo` (`cubic-bezier(0.16,1,0.3,1)`) in CSS, mirrored by `EASE_OUT_QUINT` / `EASE_OUT_EXPO` in `lib/motion.ts` for framer. Nothing bounces; nothing uses elastic.
+
+- **Theme switch** crossfades colors over 250ms (a "terminal redraw") via a `theme-transition` class added to `<html>` only for the duration of the switch.
+- **Reveals enhance an already-visible default.** Scroll-triggered entrances (the `HierarchyDiagram`) animate **transform only** — never `opacity` from 0 — so content is fully visible with no JS or if the in-view observer never fires.
+- **Every animation has a `prefers-reduced-motion` path** — blink, fade-up, and the theme crossfade stop; framer variants collapse to no-op; `cmd-flash` becomes a static ring; and `transition` is globally neutralized.
 
 ## 6. Do's and Don'ts
 
