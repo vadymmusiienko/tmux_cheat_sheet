@@ -183,26 +183,26 @@
     "keywords": ["create new window"]
   },
   {
-    "desc": "Previous window",
+    "desc": "Previous window (vim-style, hold to repeat)",
     "cat": "Windows",
     "tier": "essential",
     "mine": true,
-    "keys": "Ctrl-Shift-Left",
+    "keys": "prefix h",
     "default": "prefix p",
     "shell": [],
     "tmuxcmd": [],
-    "keywords": ["navigate", "previous"]
+    "keywords": ["navigate", "previous", "vim", "left"]
   },
   {
-    "desc": "Next window",
+    "desc": "Next window (vim-style, hold to repeat)",
     "cat": "Windows",
     "tier": "essential",
     "mine": true,
-    "keys": "Ctrl-Shift-Right",
+    "keys": "prefix l",
     "default": "prefix n",
     "shell": [],
     "tmuxcmd": [],
-    "keywords": ["navigate", "next"]
+    "keywords": ["navigate", "next", "vim", "right"]
   },
   {
     "desc": "Start a new session named mysession with window mywindow",
